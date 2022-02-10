@@ -1,0 +1,19 @@
+{
+  "name": "feedback-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && yarn start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheNathanN/feedback-app.git"
+  },
+  "author": "Nathan Nicholson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheNathanN/feedback-app/issues"
+  },
+  "homepage": "https://github.com/TheNathanN/feedback-app#readme"
+}
