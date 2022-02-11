@@ -10,10 +10,11 @@ module.exports = {
       lightNavy: '#647196',
       orange: '#f49f85',
       white: '#ffffff',
-      whiteBlue: '#f2f4ff',
+      whiteBlue: '#F2F4FE',
       whiteBlue2: '#f7f8fd',
       whiteBlue3: '#CFD7FF',
       red: '#d73737',
+      gray: '#979797',
     },
     fontFamily: {
       sans: ['jost', 'sans-serif'],
