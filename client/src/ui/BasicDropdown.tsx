@@ -1,39 +1,34 @@
-import { useState } from "react";
-import DropdownMenu from "./DropdownMenu";
+import { useState } from 'react';
+import DropdownMenu from './DropdownMenu';
 
-const FilterDropdown = () => {
-  const list = [
-    "Most Upvotes",
-    "Least Upvotes",
-    "Most Comments",
-    "Least Comments",
-  ];
+interface Props {
+  list: string[];
+}
 
+const BasicDropdown = ({ list }: Props) => {
   const [selected, setSelected] = useState(list[0]);
   const [active, setActive] = useState(false);
+
   const handleSelect = (item: string) => {
     setSelected(item);
     setActive(false);
   };
 
   return (
-    <div className='bg-navy text-sans relative px-2 py-4 '>
+    <div className='relative '>
       <div
-        className='flex items-center cursor-pointer '
+        className={`flex items-center justify-between cursor-pointer ${
+          active ? 'border-[1px} border-solid border-darkNavy' : ''
+        } `}
         onClick={() => setActive(!active)}
       >
-        <p
-          className={`text-h4 mx-2 
-        ${active ? "text-whiteBlue" : "text-white"} `}
-        >
-          Sort By: <span className='font-bold '>{selected}</span>
-        </p>
+        <p>{selected}</p>
 
         {!active ? (
           <svg width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
             <path
               d='M1 1l4 4 4-4'
-              stroke='#fff'
+              stroke='#4661E6'
               stroke-width='2'
               fill='none'
               fill-rule='evenodd'
@@ -43,7 +38,7 @@ const FilterDropdown = () => {
           <svg width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
             <path
               d='M1 6l4-4 4 4'
-              stroke='#fff'
+              stroke='#4661E6'
               stroke-width='2'
               fill='none'
               fill-rule='evenodd'
@@ -55,12 +50,12 @@ const FilterDropdown = () => {
       {active && (
         <DropdownMenu
           list={list}
-          handleSelect={handleSelect}
           selected={selected}
+          handleSelect={handleSelect}
         />
       )}
     </div>
   );
 };
 
-export default FilterDropdown;
+export default BasicDropdown;
