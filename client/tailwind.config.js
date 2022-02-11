@@ -12,6 +12,7 @@ module.exports = {
       white: '#ffffff',
       whiteBlue: '#f2f4ff',
       whiteBlue2: '#f7f8fd',
+      whiteBlue3: '#CFD7FF',
       red: '#d73737',
     },
     fontFamily: {
