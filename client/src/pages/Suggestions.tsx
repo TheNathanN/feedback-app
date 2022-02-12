@@ -9,12 +9,11 @@ const Suggestions = () => {
   const [feedbackList, setFeedbackList] = useState([]);
 
   return (
-    <div>
+    <div className='w-full h-full flex flex-col '>
       <Nav openNav={openNav} setOpenNav={setOpenNav} />
-      <div>
-        <AddFeedbackBar />
-
-        <div className='flex flex-col items-center justify-center '>
+      <AddFeedbackBar />
+      <div className='w-full h-full bg-whiteBlue2 '>
+        <div className='flex flex-col items-center justify-center h-full w-full '>
           {feedbackList[0] ? <FeedbackCard /> : <NoFeedbackCard />}
         </div>
       </div>
