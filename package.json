@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TheNathanN/feedback-app/issues"
   },
-  "homepage": "https://github.com/TheNathanN/feedback-app#readme"
+  "homepage": "https://github.com/TheNathanN/feedback-app#readme",
+  "dependencies": {
+    "react-router-dom": "6"
+  }
 }

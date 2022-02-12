@@ -17,13 +17,13 @@ const SortingDropdown = () => {
   };
 
   return (
-    <div className='bg-navy text-sans relative px-2 py-2 '>
+    <div className='bg-navy text-sans relative w-full h-full '>
       <div
         className='flex items-center cursor-pointer '
         onClick={() => setActive(!active)}
       >
         <p
-          className={`text-h4 mx-2 
+          className={`text-h4 mr-2 
         ${active ? 'text-whiteBlue' : 'text-white'} `}
         >
           Sort By: <span className='font-bold '>{selected}</span>
@@ -34,9 +34,9 @@ const SortingDropdown = () => {
             <path
               d='M1 1l4 4 4-4'
               stroke='#fff'
-              stroke-width='2'
+              strokeWidth='2'
               fill='none'
-              fill-rule='evenodd'
+              fillRule='evenodd'
             />
           </svg>
         ) : (
@@ -44,9 +44,9 @@ const SortingDropdown = () => {
             <path
               d='M1 6l4-4 4 4'
               stroke='#fff'
-              stroke-width='2'
+              strokeWidth='2'
               fill='none'
-              fill-rule='evenodd'
+              fillRule='evenodd'
             />
           </svg>
         )}

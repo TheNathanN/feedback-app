@@ -1,7 +1,12 @@
+import { Routes, Route } from 'react-router-dom';
+import Suggestions from './pages/Suggestions';
+
 const App = () => {
   return (
-    <div>
-      <h1>Hello world</h1>
+    <div className='font-sans bg-whiteBlue2 w-screen h-screen '>
+      <Routes>
+        <Route path='/' element={<Suggestions />} />
+      </Routes>
     </div>
   );
 };
