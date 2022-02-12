@@ -22,7 +22,7 @@ const BasicDropdown = ({ list }: Props) => {
         } `}
         onClick={() => setActive(!active)}
       >
-        <p>{selected}</p>
+        <p className='text-navy '>{selected}</p>
 
         {!active ? (
           <svg width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
