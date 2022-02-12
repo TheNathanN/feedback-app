@@ -6,7 +6,7 @@ interface Props {
 
 const DropdownMenu = ({ list, selected, handleSelect }: Props) => {
   return (
-    <div className='absolute shadow-2xl text-lightNavy rounded-lg text-body1 top-16 '>
+    <div className='absolute shadow-2xl text-lightNavy rounded-lg text-body2 top-12 z-10 bg-white '>
       <ul>
         {list.map(item => (
           <li

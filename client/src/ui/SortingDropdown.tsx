@@ -1,12 +1,12 @@
-import { useState } from "react";
-import DropdownMenu from "./DropdownMenu";
+import { useState } from 'react';
+import DropdownMenu from './DropdownMenu';
 
-const FilterDropdown = () => {
+const SortingDropdown = () => {
   const list = [
-    "Most Upvotes",
-    "Least Upvotes",
-    "Most Comments",
-    "Least Comments",
+    'Most Upvotes',
+    'Least Upvotes',
+    'Most Comments',
+    'Least Comments',
   ];
 
   const [selected, setSelected] = useState(list[0]);
@@ -17,14 +17,14 @@ const FilterDropdown = () => {
   };
 
   return (
-    <div className='bg-navy text-sans relative px-2 py-4 '>
+    <div className='bg-navy text-sans relative px-2 py-2 '>
       <div
         className='flex items-center cursor-pointer '
         onClick={() => setActive(!active)}
       >
         <p
           className={`text-h4 mx-2 
-        ${active ? "text-whiteBlue" : "text-white"} `}
+        ${active ? 'text-whiteBlue' : 'text-white'} `}
         >
           Sort By: <span className='font-bold '>{selected}</span>
         </p>
@@ -63,4 +63,4 @@ const FilterDropdown = () => {
   );
 };
 
-export default FilterDropdown;
+export default SortingDropdown;

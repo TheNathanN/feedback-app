@@ -1,12 +1,14 @@
-import FilterDropdown from "./ui/FilterDropdown";
-import BasicDropdown from "./ui/BasicDropdown";
+import { useState } from 'react';
+import TextInput from './ui/TextInput';
 
 const App = () => {
+  const [state, setState] = useState('');
+
+  console.log(state);
   return (
     <div>
       <h1>Hello world</h1>
-      <FilterDropdown />
-      <BasicDropdown list={["Feature", "Feature 2"]} />
+      <TextInput name='state' type='text' state={state} setState={setState} />
     </div>
   );
 };
