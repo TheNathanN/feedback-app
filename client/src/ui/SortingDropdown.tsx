@@ -23,14 +23,19 @@ const SortingDropdown = () => {
         onClick={() => setActive(!active)}
       >
         <p
-          className={`text-h4 mr-2 
+          className={`text-h4 
         ${active ? 'text-whiteBlue' : 'text-white'} `}
         >
-          Sort By: <span className='font-bold '>{selected}</span>
+          Sort By: <span className='font-bold inline-block '>{selected}</span>
         </p>
 
         {!active ? (
-          <svg width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
+          <svg
+            className='mx-2'
+            width='10'
+            height='7'
+            xmlns='http://www.w3.org/2000/svg'
+          >
             <path
               d='M1 1l4 4 4-4'
               stroke='#fff'
@@ -40,7 +45,12 @@ const SortingDropdown = () => {
             />
           </svg>
         ) : (
-          <svg width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
+          <svg
+            className='mx-2'
+            width='10'
+            height='7'
+            xmlns='http://www.w3.org/2000/svg'
+          >
             <path
               d='M1 6l4-4 4 4'
               stroke='#fff'
