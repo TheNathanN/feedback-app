@@ -18,6 +18,26 @@ const FeedbackCard = ({
   description,
   comments,
 }: Props) => {
+  const getCount = () => {
+    let commentCount: number;
+    let replyCount: number;
+    let totalCount: number;
+
+    if (comments) {
+      const commentsWithReplies = comments.filter(comment => comment.replies);
+      const replies = commentsWithReplies.map(comment => comment.replies);
+
+      replyCount = replies[0] ? replies[0].length : 0;
+      commentCount = comments.length;
+      totalCount = commentCount + replyCount;
+
+      return totalCount;
+    }
+    return 0;
+  };
+
+  const count = getCount();
+
   return (
     <div className='bg-white p-6 rounded-lg w-11/12 my-2 '>
       <div className='cursor-pointer '>
@@ -30,7 +50,7 @@ const FeedbackCard = ({
       <div className='flex items-center justify-between mt-4 '>
         <UpvoteButton active={false} total={upvotes} />
         <div className='md:hidden'>
-          <CommentCount count={comments ? comments.length : 0} />
+          <CommentCount count={count} />
         </div>
       </div>
     </div>

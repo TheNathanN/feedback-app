@@ -7,7 +7,7 @@ interface Props {
 
 const UpvoteButton = ({ active, total }: Props) => {
   const defaultStyles =
-    'text-darkNavy bg-whiteBlue hover:bg-whiteBlue3 flex md:flex-col items-center justify-center text-h4 font-bold font-sans py-1 md:py-2 px-3 rounded-lg stroke-blue cursor-pointer transition-all ';
+    'text-darkNavy bg-whiteBlue hover:bg-whiteBlue3 flex md:flex-col items-center justify-center text-h4 font-bold font-sans py-1 md:py-2 px-3 md:px-2 rounded-lg stroke-blue cursor-pointer transition-all ';
   const activeStyles =
     'text-white hover:text-darkNavy bg-blue hover:bg-whiteBlue3 flex flex-col items-center justify-center text-h4 font-bold font-sans py-1 md:py-2 px-3 rounded-lg stroke-white hover:stroke-blue cursor-pointer transition-all ';
 
