@@ -1,28 +1,28 @@
-export interface User {
+export interface UserType {
   image: string;
   name: string;
   username: string;
 }
 
-export interface Reply {
+export interface ReplyType {
   content: string;
   replyingTo: string;
-  user: User;
+  user: UserType;
 }
 
-export interface Comment {
+export interface CommentType {
   id: number;
   content: string;
-  user: User;
-  replies?: Reply[];
+  user: UserType;
+  replies?: ReplyType[];
 }
 
-export interface Feedback {
+export interface FeedbackType {
   id: number;
   title: string;
   category: string;
   upvotes: number;
   status: string;
   description: string;
-  comments: Comment[];
+  comments?: CommentType[];
 }

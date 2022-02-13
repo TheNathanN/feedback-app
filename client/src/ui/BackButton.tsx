@@ -6,12 +6,12 @@ interface Props {
 
 const BackButton = ({ color }: Props) => {
   const basicStyling =
-    'text-h4 font-bold py-3 px-7 rounded-md flex items-center justify-center hover:underline transition-all cursor-pointer ';
-  const whiteClass = basicStyling + 'text-lightNavy bg-white ';
+    'text-h4 font-bold rounded-md flex items-center justify-center hover:underline transition-all cursor-pointer ';
+  const whiteClass = basicStyling + 'text-lightNavy bg-blueWhite ';
   const navyClass = basicStyling + 'text-white bg-darkNavy ';
 
   return (
-    <div
+    <button
       className={
         color === 'white' ? whiteClass : color === 'navy' ? navyClass : ''
       }
@@ -29,7 +29,7 @@ const BackButton = ({ color }: Props) => {
       </svg>
 
       <p className='ml-4'>Go Back</p>
-    </div>
+    </button>
   );
 };
 

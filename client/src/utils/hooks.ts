@@ -1,0 +1,42 @@
+import { CommentType } from './type';
+
+export const fetchSuggestions = async (
+  db: string,
+  setState: React.Dispatch<any>
+) => {
+  const response = await fetch(db);
+  const data = await response.json();
+  setState(data.productRequests);
+};
+
+export const fetchUser = async (db: string, setState: React.Dispatch<any>) => {
+  const response = await fetch(db);
+  const data = await response.json();
+  setState(data.currentUser);
+};
+
+export const getCommentCount = (comments?: CommentType[]) => {
+  let commentCount: number;
+  let replyCount: number;
+  let totalCount: number;
+
+  if (comments) {
+    const commentsWithReplies = comments.filter(comment => comment.replies);
+    const replies = commentsWithReplies.map(comment => comment.replies);
+
+    replyCount = replies[0] ? replies[0].length : 0;
+    commentCount = comments.length;
+    totalCount = commentCount + replyCount;
+
+    return totalCount;
+  }
+  return 0;
+};
+
+export const pluralCheck = (count: number) => {
+  if (count > 1) {
+    return 's';
+  }
+
+  return;
+};
