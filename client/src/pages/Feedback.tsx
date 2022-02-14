@@ -6,6 +6,7 @@ import FeedbackCard from '../components/FeedbackCard';
 import BackButton from '../ui/BackButton';
 import Button from '../ui/Button';
 import CommentCard from '../components/feedback/CommentCard';
+import AddCommentCard from '../components/feedback/AddCommentCard';
 
 const Feedback = () => {
   const { id } = useParams();
@@ -38,6 +39,8 @@ const Feedback = () => {
           </div>
 
           <CommentCard comments={feedback[0].comments} />
+
+          <AddCommentCard />
         </div>
       ) : (
         <div className='flex items-center justify-center w-full h-full '>

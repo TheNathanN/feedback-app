@@ -27,7 +27,7 @@ const FeedbackCard = ({ feedback }: Props) => {
 
       <div className='flex items-center justify-between mt-4 '>
         <UpvoteButton active={false} total={feedback.upvotes} />
-        <div className='md:hidden'>
+        <div>
           <Link to={`/feedback/${feedback.id}`}>
             <CommentCount count={count} />
           </Link>
