@@ -16,7 +16,17 @@ const CommentCard = ({ comments }: Props) => {
           {count} Comment{pluralCheck(count)}
         </p>
       </div>
-      <CommentContainer />
+
+      {comments
+        ? comments.map(comment => (
+            <div
+              key={comment.id}
+              className='border-b-[1px] border-whiteBlue last:border-0 '
+            >
+              <CommentContainer comment={comment} />
+            </div>
+          ))
+        : ''}
     </div>
   );
 };

@@ -34,7 +34,7 @@ export const getCommentCount = (comments?: CommentType[]) => {
 };
 
 export const pluralCheck = (count: number) => {
-  if (count > 1) {
+  if (count > 1 || count === 0) {
     return 's';
   }
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FeedbackType } from '../utils/type';
 import { fetchSuggestions } from '../utils/hooks';
 import FeedbackCard from '../components/FeedbackCard';
@@ -25,7 +25,9 @@ const Feedback = () => {
   return (
     <div className='min-h-screen min-w-screen px-6 py-6 w-full '>
       <div className='w-full flex items-center justify-between'>
-        <BackButton color='white' />
+        <Link to='/'>
+          <BackButton color='white' />
+        </Link>
         <Button color='blue'>Edit Feedback</Button>
       </div>
 

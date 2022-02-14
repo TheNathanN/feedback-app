@@ -26,7 +26,9 @@ const Suggestions = () => {
         <div className='flex flex-col items-center justify-center h-full w-full '>
           {feedbackList ? (
             feedbackList.map((feedback: FeedbackType) => (
-              <FeedbackCard key={feedback.id} feedback={feedback} />
+              <div className='w-11/12 md:w-10/12' key={feedback.id}>
+                <FeedbackCard feedback={feedback} />
+              </div>
             ))
           ) : (
             <NoFeedbackCard />
