@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import InputContainer from '../components/feedbackForm/InputContainer';
 import FeedbackFormContainer from '../components/FeedbackFormContainer';
 import BackButton from '../ui/BackButton';
 import Button from '../ui/Button';
+import FeedbackForm from './pageTemplates/FeedbackForm';
 
 const NewFeedback = () => {
   const categories = ['Feature', 'UI', 'UX', 'Enhancment', 'Bug'];
@@ -32,14 +32,9 @@ const NewFeedback = () => {
   };
 
   return (
-    <div className='min-h-screen min-w-screen w-full h-full px-6 pt-6 pb-14 '>
-      <div className='mb-10 '>
-        <Link to='/'>
-          <BackButton color='white' />
-        </Link>
-      </div>
-
+    <FeedbackForm backLink='/'>
       <FeedbackFormContainer
+        type='new'
         title={title}
         category={category}
         detail={detail}
@@ -85,7 +80,7 @@ const NewFeedback = () => {
           </div>
         </div>
       </FeedbackFormContainer>
-    </div>
+    </FeedbackForm>
   );
 };
 

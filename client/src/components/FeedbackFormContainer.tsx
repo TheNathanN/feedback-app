@@ -1,6 +1,9 @@
 import React from 'react';
+import EditFeedbackIcon from './svg/EditFeedbackIcon';
+import NewFeedbackIcon from './svg/NewFeedbackIcon';
 
 interface Props {
+  type: 'new' | 'edit';
   header: string;
   children: React.ReactNode;
   title: string;
@@ -10,6 +13,7 @@ interface Props {
 }
 
 const FeedbackFormContainer = ({
+  type,
   header,
   children,
   title,
@@ -25,7 +29,10 @@ const FeedbackFormContainer = ({
   };
 
   return (
-    <div className='bg-white w-full h-full rounded-lg p-4 '>
+    <div className='bg-white w-full h-full rounded-lg p-4 relative '>
+      <div className='absolute -top-7 '>
+        {type === 'new' ? <NewFeedbackIcon /> : <EditFeedbackIcon />}
+      </div>
       <h1 className='text-h3 font-bold text-navy my-6 '>{header}</h1>
       <form
         onSubmit={() => {

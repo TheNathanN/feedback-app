@@ -29,9 +29,11 @@ const Feedback = () => {
         <Link to='/'>
           <BackButton color='white' />
         </Link>
-        <Button type='button' color='blue'>
-          Edit Feedback
-        </Button>
+        <Link to={`/feedback/${id}/edit`}>
+          <Button type='button' color='blue'>
+            Edit Feedback
+          </Button>
+        </Link>
       </div>
 
       {feedback ? (
