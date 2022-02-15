@@ -6,12 +6,12 @@ interface Props {
 
 const DropdownMenu = ({ list, selected, handleSelect }: Props) => {
   return (
-    <div className='absolute shadow-2xl text-lightNavy rounded-lg text-body2 top-12 z-10 bg-white '>
-      <ul>
+    <div className='absolute w-full shadow-2xl text-lightNavy rounded-lg text-body2 top-[3.25rem] z-10 bg-white '>
+      <ul className='w-full'>
         {list.map(item => (
           <li
             key={list.indexOf(item)}
-            className='cursor-pointer hover:text-purple border-b-[1px] border-b-gray border-opacity-25 last:border-none h-10 w-52 flex items-center justify-between px-4 '
+            className='cursor-pointer hover:text-purple border-b-[1px] border-b-gray border-opacity-25 last:border-none h-10 w-full flex items-center justify-between px-4 '
             onClick={() => handleSelect(item)}
           >
             {item}

@@ -4,7 +4,7 @@ import Button from '../../ui/Button';
 const AddFeedbackBtn = () => {
   return (
     <div className='w-32 h-9 '>
-      <Button color='purple'>
+      <Button type='button' color='purple'>
         <svg
           width='9'
           height='9'

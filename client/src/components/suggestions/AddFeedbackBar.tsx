@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import SortingDropdown from '../../ui/SortingDropdown';
 import AddFeedbackBtn from './AddFeedbackBtn';
 
@@ -8,7 +9,9 @@ const AddFeedbackBar = () => {
         <SortingDropdown />
       </div>
 
-      <AddFeedbackBtn />
+      <Link to='/feedback/new'>
+        <AddFeedbackBtn />
+      </Link>
     </div>
   );
 };

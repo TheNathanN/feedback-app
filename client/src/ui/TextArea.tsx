@@ -33,6 +33,7 @@ const TextArea = ({
       <div onClick={() => setFocused(true)}>
         <textarea
           name={name}
+          id={name}
           value={state}
           onChange={changeHandler}
           className={basicStyling + invalidFocusStyling}
@@ -40,6 +41,7 @@ const TextArea = ({
           cols={cols}
           placeholder={placeholder}
           maxLength={250}
+          required
         />
         {focused ? <p className='text-h4 text-red '>Can't be empty</p> : ''}
       </div>
