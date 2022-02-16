@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import Button from '../../ui/Button';
 import TextArea from '../../ui/TextArea';
+import { pluralCheck } from '../../utils/hooks';
 
 const AddCommentCard = () => {
   const [newComment, setNewComment] = useState('');
   const maxLength = 250;
+  const count = maxLength - newComment.length;
 
   return (
     <div className='bg-white flex flex-col items-start justify-center my-6 p-4 rounded-lg '>
@@ -25,7 +27,7 @@ const AddCommentCard = () => {
         <div className='flex items-center justify-between w-full mb-2 '>
           <div>
             <p className='text-body3 text-lightNavy '>
-              {maxLength - newComment.length} Characters Left
+              {maxLength - newComment.length} Character{pluralCheck(count)} Left
             </p>
           </div>
           <Button type='submit' color='purple'>
