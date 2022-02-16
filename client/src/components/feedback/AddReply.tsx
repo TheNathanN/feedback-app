@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '../../ui/Button';
 import TextArea from '../../ui/TextArea';
+import { UserType } from '../../utils/type';
 
-const AddReply = () => {
+interface Props {
+  user: UserType;
+  replyUser?: UserType;
+}
+
+const AddReply = ({ user, replyUser }: Props) => {
   const [inputState, setInputState] = useState('');
+
+  useEffect(() => {
+    setInputState(replyUser ? `@${replyUser.username}` : `@${user.username}`);
+  }, [replyUser, replyUser?.username, user.username]);
 
   return (
     <div>
