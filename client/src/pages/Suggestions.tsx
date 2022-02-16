@@ -11,6 +11,7 @@ const Suggestions = () => {
   const [feedbackList, setFeedbackList] = useState<any>();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     try {
       fetchSuggestions('data.json', setFeedbackList);
     } catch (err) {
@@ -22,7 +23,7 @@ const Suggestions = () => {
     <div className='min-w-screen min-h-screen flex flex-col '>
       <Nav openNav={openNav} setOpenNav={setOpenNav} />
       <AddFeedbackBar />
-      <div className='w-full h-full bg-whiteBlue2 px-4 py-4 '>
+      <div className='w-full h-full bg-whiteBlue2 px-4 pt-4 pb-8 '>
         <div className='flex flex-col items-center justify-center h-full w-full '>
           {feedbackList ? (
             feedbackList.map((feedback: FeedbackType) => (

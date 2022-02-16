@@ -1,39 +1,24 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import InputContainer from '../components/feedbackForm/InputContainer';
-import FeedbackFormContainer from '../components/FeedbackFormContainer';
-import BackButton from '../ui/BackButton';
+import FeedbackForm from '../components/FeedbackForm';
 import Button from '../ui/Button';
-import FeedbackForm from './pageTemplates/FeedbackForm';
+import FeedbackFormContainer from './pageTemplates/FeedbackFormContainer';
+import {
+  categories,
+  categoryLabels,
+  detailLabels,
+  titleLabels,
+} from '../utils/formElements';
 
 const NewFeedback = () => {
-  const categories = ['Feature', 'UI', 'UX', 'Enhancment', 'Bug'];
-  const titleLabels = {
-    heading: 'Feedback Title',
-    description: 'Add a short, descriptive headline',
-  };
-  const categoryLabels = {
-    heading: 'Category',
-    description: 'Choose a category for your feedback',
-  };
-  const detailLabels = {
-    heading: 'Feedback Detail',
-    description:
-      'Include any specific comments on what should be improved, added, etc.',
-  };
-
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState(categories[0]);
   const [detail, setDetail] = useState('');
 
-  const resetForm = () => {
-    setTitle('');
-    setCategory(categories[0]);
-    setDetail('');
-  };
-
   return (
-    <FeedbackForm backLink='/'>
-      <FeedbackFormContainer
+    <FeedbackFormContainer backLink='/'>
+      <FeedbackForm
         type='new'
         title={title}
         category={category}
@@ -73,14 +58,14 @@ const NewFeedback = () => {
             </Button>
           </div>
 
-          <div onClick={resetForm}>
+          <Link to='/'>
             <Button color='navy' type='button' full={true}>
               Cancel
             </Button>
-          </div>
+          </Link>
         </div>
-      </FeedbackFormContainer>
-    </FeedbackForm>
+      </FeedbackForm>
+    </FeedbackFormContainer>
   );
 };
 
