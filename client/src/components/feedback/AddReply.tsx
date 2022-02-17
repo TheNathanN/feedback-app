@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import Button from '../../ui/Button';
 import TextArea from '../../ui/TextArea';
-import { UserType } from '../../utils/type';
+import { fetchUser } from '../../utils/hooks';
+import { ReplyType, UserType } from '../../utils/type';
 
 interface Props {
   user: UserType;
@@ -9,15 +10,37 @@ interface Props {
 }
 
 const AddReply = ({ user, replyUser }: Props) => {
+  const [currentUser, setCurrentUser] = useState<UserType>();
   const [inputState, setInputState] = useState('');
 
   useEffect(() => {
+    if (!currentUser) {
+      fetchUser('../../data.json', setCurrentUser);
+    }
     setInputState(replyUser ? `@${replyUser.username}` : `@${user.username}`);
-  }, [replyUser, replyUser?.username, user.username]);
+  }, [replyUser, replyUser?.username, user.username, currentUser]);
+
+  const handleSubmit = () => {
+    if (currentUser) {
+      const reply: ReplyType = {
+        content: inputState,
+        replyingTo: replyUser ? `@${replyUser.username}` : `@${user.username}`,
+        user: currentUser,
+      };
+      alert(
+        `Reply to ${
+          replyUser ? `@${replyUser.username}` : `@${user.username}`
+        }: '${reply.content}'`
+      );
+    }
+  };
 
   return (
     <div>
-      <form className='flex flex-col items-start justify-center md:flex-row md:justify-between '>
+      <form
+        className='flex flex-col items-start justify-center md:flex-row md:justify-between '
+        onSubmit={handleSubmit}
+      >
         <div className='md:w-10/12 '>
           <TextArea
             name='reply'

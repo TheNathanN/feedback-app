@@ -29,6 +29,7 @@ const EditFeedback = () => {
   const [status, setStatus] = useState(statusList[0]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!feedbackList) {
       try {
         fetchSuggestions('../../data.json', setFeedbackList);
@@ -63,6 +64,7 @@ const EditFeedback = () => {
         category={category}
         detail={detail}
         status={status}
+        id={id}
       >
         <InputContainer
           heading={titleLabels.heading}

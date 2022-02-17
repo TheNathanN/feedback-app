@@ -16,6 +16,7 @@ const Feedback = () => {
   const feedback = feedbackList?.filter(item => `${item.id}` === id);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     try {
       fetchSuggestions('../data.json', setFeedbackList);
     } catch (err) {
@@ -44,10 +45,10 @@ const Feedback = () => {
 
           <CommentCard comments={feedback[0].comments} />
 
-          <AddCommentCard />
+          <AddCommentCard comments={feedback[0].comments} />
         </div>
       ) : (
-        <div className='flex items-center justify-center w-full h-full '>
+        <div className='flex items-center justify-center w-screen h-screen '>
           <p>Loading...</p>
         </div>
       )}

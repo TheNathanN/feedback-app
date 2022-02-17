@@ -3,6 +3,7 @@ import MobileEditFeedbackIcon from './svg/MobileEditFeedbackIcon';
 import MobileNewFeedbackIcon from './svg/MobileNewFeedbackIcon';
 import NewFeedbackIcon from './svg/NewFeedbackIcon';
 import EditFeedbackIcon from './svg/EditFeedbackIcon';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   type: 'new' | 'edit';
@@ -12,6 +13,7 @@ interface Props {
   category: string;
   detail: string;
   status?: string;
+  id?: string;
 }
 
 const FeedbackFormContainer = ({
@@ -22,7 +24,9 @@ const FeedbackFormContainer = ({
   category,
   detail,
   status,
+  id,
 }: Props) => {
+  const navigate = useNavigate();
   const formInput = {
     title: title,
     category: category,
@@ -47,8 +51,13 @@ const FeedbackFormContainer = ({
       <form
         onSubmit={() => {
           alert(
-            `${formInput.title}, ${formInput.category}, ${formInput.detail}`
+            `
+            Title: ${formInput.title} 
+            Category: ${formInput.category} 
+            Status: ${formInput.status}
+            Details: ${formInput.detail}`
           );
+          navigate(id ? `/feedback/${id}` : '/');
         }}
       >
         {children}
