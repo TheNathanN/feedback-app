@@ -1,5 +1,5 @@
 import React from 'react';
-import AddFeedbackBtn from './suggestions/AddFeedbackBtn';
+import AddFeedbackBtn from './home/AddFeedbackBtn';
 import EmptyIllustration from './svg/EmptyIllustration';
 
 const NoFeedbackCard = () => {

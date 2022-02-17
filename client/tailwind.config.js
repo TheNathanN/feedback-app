@@ -15,6 +15,7 @@ module.exports = {
       whiteBlue3: '#CFD7FF',
       red: '#d73737',
       gray: '#979797',
+      black: '#000',
     },
     fontFamily: {
       sans: ['jost', 'sans-serif'],
