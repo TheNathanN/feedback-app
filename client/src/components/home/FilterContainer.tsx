@@ -4,11 +4,13 @@ import { filterList } from '../../utils/filterList';
 interface Props {
   state: string;
   setState: React.Dispatch<React.SetStateAction<string>>;
+  setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FilterContainer = ({ state, setState }: Props) => {
+const FilterContainer = ({ state, setState, setOpenNav }: Props) => {
   const handleClick = (item: string) => {
     setState(item);
+    setOpenNav(false);
   };
 
   return (

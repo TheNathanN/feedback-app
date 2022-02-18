@@ -30,7 +30,11 @@ const Home = () => {
       <Nav openNav={openNav} setOpenNav={setOpenNav} />
       <div className={`w-full h-full relative z-10  `}>
         {openNav ? (
-          <MobileNav state={filterChoice} setState={setFilterChoice} />
+          <MobileNav
+            state={filterChoice}
+            setState={setFilterChoice}
+            setOpenNav={setOpenNav}
+          />
         ) : (
           ''
         )}
