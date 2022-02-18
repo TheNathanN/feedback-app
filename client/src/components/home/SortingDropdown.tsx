@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import DropdownMenu from './DropdownMenu';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { changeSorter } from '../../redux/slices/sorterSlice';
+import DropdownMenu from '../../ui/DropdownMenu';
 
 const SortingDropdown = () => {
   const list = [
@@ -9,10 +11,13 @@ const SortingDropdown = () => {
     'Least Comments',
   ];
 
-  const [selected, setSelected] = useState(list[0]);
+  const sorter = useAppSelector(state => state.sorter.value);
+  const dispatch = useAppDispatch();
+
   const [active, setActive] = useState(false);
+
   const handleSelect = (item: string) => {
-    setSelected(item);
+    dispatch(changeSorter(item));
     setActive(false);
   };
 
@@ -26,7 +31,7 @@ const SortingDropdown = () => {
           className={`text-h4 
         ${active ? 'text-whiteBlue' : 'text-white'} `}
         >
-          Sort By: <span className='font-bold inline-block '>{selected}</span>
+          Sort By: <span className='font-bold inline-block '>{sorter}</span>
         </p>
 
         {!active ? (
@@ -66,7 +71,7 @@ const SortingDropdown = () => {
         <DropdownMenu
           list={list}
           handleSelect={handleSelect}
-          selected={selected}
+          selected={sorter}
         />
       )}
     </div>

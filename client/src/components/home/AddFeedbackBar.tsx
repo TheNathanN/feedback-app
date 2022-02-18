@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import SortingDropdown from '../../ui/SortingDropdown';
+import SortingDropdown from './SortingDropdown';
 import AddFeedbackBtn from './AddFeedbackBtn';
 
 const AddFeedbackBar = () => {
