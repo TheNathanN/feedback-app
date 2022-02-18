@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/utilFunctions';
 import { changeSorter } from '../../redux/slices/sorterSlice';
 import DropdownMenu from '../../ui/DropdownMenu';
 

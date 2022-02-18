@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useAppSelector } from '../redux/utilFunctions';
+import { fetchSuggestions, getCommentCount } from '../utils/hooks';
+import { FeedbackType } from '../utils/type';
+import { sorterList } from '../utils/labels';
 import FeedbackCard from '../components/FeedbackCard';
 import NoFeedbackCard from '../components/NoFeedbackCard';
 import AddFeedbackBar from '../components/home/AddFeedbackBar';
 import Nav from '../components/home/Nav';
 import MobileNav from '../components/home/MobileNav';
-import { FeedbackType } from '../utils/type';
-import { fetchSuggestions, getCommentCount } from '../utils/hooks';
-import { useAppSelector } from '../redux/hooks';
-import { sorterList } from '../utils/labels';
 
 const Home = () => {
   const [openNav, setOpenNav] = useState(false);

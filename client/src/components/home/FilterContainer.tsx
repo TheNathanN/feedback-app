@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/utilFunctions';
 import { changeFilter } from '../../redux/slices/filterSlice';
 import TagButton from '../../ui/TagButton';
 import { filterList } from '../../utils/labels';
