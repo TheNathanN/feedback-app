@@ -1,4 +1,4 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   color: 'white' | 'navy';
@@ -10,11 +10,14 @@ const BackButton = ({ color }: Props) => {
   const whiteClass = basicStyling + 'text-lightNavy bg-blueWhite ';
   const navyClass = basicStyling + 'text-white bg-darkNavy ';
 
+  const navigate = useNavigate();
+
   return (
     <button
       className={
         color === 'white' ? whiteClass : color === 'navy' ? navyClass : ''
       }
+      onClick={() => navigate(-1)}
     >
       <svg width='7' height='10' xmlns='http://www.w3.org/2000/svg'>
         <path

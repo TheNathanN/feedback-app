@@ -9,7 +9,7 @@ interface Props {
 
 const RoadmapLabel = ({ status, feedbackList }: Props) => {
   return (
-    <div className='flex items-center justify-between text-body1 text-lightNavy '>
+    <div className='flex items-center justify-between text-body1 text-lightNavy my-2 '>
       <div
         className={`w-2 h-2 rounded-full ${
           status === 'Planned'

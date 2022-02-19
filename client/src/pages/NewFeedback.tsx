@@ -17,7 +17,7 @@ const NewFeedback = () => {
   const [detail, setDetail] = useState('');
 
   return (
-    <FeedbackFormContainer backLink='/'>
+    <FeedbackFormContainer>
       <FeedbackForm
         type='new'
         title={title}

@@ -56,7 +56,7 @@ const EditFeedback = () => {
   };
 
   return (
-    <FeedbackFormContainer backLink={`/feedback/${id}`}>
+    <FeedbackFormContainer>
       <FeedbackForm
         type='edit'
         header={`${feedback ? `Editing '${feedback[0].title}'` : ''}`}

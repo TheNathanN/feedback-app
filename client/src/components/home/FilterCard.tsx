@@ -17,9 +17,9 @@ const FilterCard = ({ setOpenNav }: Props) => {
   };
 
   return (
-    <div className='w-full bg-white rounded-md p-4 flex items-center justify-start flex-wrap '>
+    <div className='w-11/12 bg-white rounded-md p-4 flex items-center justify-start flex-wrap '>
       {filterList.map((item, index) => (
-        <div key={index} onClick={() => handleClick(item)} className='m-1 '>
+        <div key={index} onClick={() => handleClick(item)} className='m-2 '>
           <TagButton active={filter === item ? true : false}>{item}</TagButton>
         </div>
       ))}

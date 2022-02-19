@@ -3,6 +3,7 @@ import EditFeedback from './pages/EditFeedback';
 import Feedback from './pages/Feedback';
 import NewFeedback from './pages/NewFeedback';
 import Home from './pages/Home';
+import Roadmap from './pages/Roadmap';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route path='/feedback/:id' element={<Feedback />} />
         <Route path='/feedback/:id/edit' element={<EditFeedback />} />
         <Route path='/feedback/new' element={<NewFeedback />} />
+        <Route path='/roadmap' element={<Roadmap />} />
       </Routes>
     </div>
   );
