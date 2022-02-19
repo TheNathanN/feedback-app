@@ -1,24 +1,39 @@
 import { FeedbackType } from '../../utils/type';
-import { getStatusCount } from '../../utils/utilFunctions';
+import RoadmapNavLabel from './RoadmapNavLabel';
 
 interface Props {
+  selectedStatus: 'Planned' | 'In-Progress' | 'Live';
+  setSelectedStatus: React.Dispatch<
+    React.SetStateAction<'Planned' | 'In-Progress' | 'Live'>
+  >;
   feedback?: FeedbackType[];
 }
 
-const RoadmapMobileNav = ({ feedback }: Props) => {
+const RoadmapMobileNav = ({
+  selectedStatus,
+  setSelectedStatus,
+  feedback,
+}: Props) => {
   return (
     <div className='flex text-center border-b-[1px] border-navy border-opacity-25 '>
-      <div className='w-1/3 py-6 text-body3 font-bold text-navy text-opacity-30 '>
-        <p>Planned ({getStatusCount('Planned', feedback)})</p>
-      </div>
-
-      <div className='w-1/3 py-6 text-body3 font-bold text-navy text-opacity-30 '>
-        <p>In-Progress ({getStatusCount('In-Progress', feedback)})</p>
-      </div>
-
-      <div className='w-1/3 py-6 text-body3 font-bold text-navy text-opacity-30 '>
-        <p>Live ({getStatusCount('Live', feedback)})</p>
-      </div>
+      <RoadmapNavLabel
+        status='Planned'
+        selectedStatus={selectedStatus}
+        setSelectedStatus={setSelectedStatus}
+        feedback={feedback}
+      />
+      <RoadmapNavLabel
+        status='In-Progress'
+        selectedStatus={selectedStatus}
+        setSelectedStatus={setSelectedStatus}
+        feedback={feedback}
+      />
+      <RoadmapNavLabel
+        status='Live'
+        selectedStatus={selectedStatus}
+        setSelectedStatus={setSelectedStatus}
+        feedback={feedback}
+      />
     </div>
   );
 };

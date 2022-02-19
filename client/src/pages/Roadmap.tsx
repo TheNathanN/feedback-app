@@ -6,6 +6,9 @@ import RoadmapMobileNav from '../components/roadmap/RoadmapMobileNav';
 
 const Roadmap = () => {
   const [feedbackList, setFeedbacklist] = useState<FeedbackType[]>();
+  const [selectedStatus, setSelectedStatus] = useState<
+    'Planned' | 'In-Progress' | 'Live'
+  >('Planned');
 
   useEffect(() => {
     fetchSuggestions('data.json', setFeedbacklist);
@@ -14,7 +17,13 @@ const Roadmap = () => {
   return (
     <div>
       <RoadmapAddFeedbackBar />
-      <RoadmapMobileNav feedback={feedbackList} />
+      <div className='md:hidden '>
+        <RoadmapMobileNav
+          selectedStatus={selectedStatus}
+          setSelectedStatus={setSelectedStatus}
+          feedback={feedbackList}
+        />
+      </div>
     </div>
   );
 };
