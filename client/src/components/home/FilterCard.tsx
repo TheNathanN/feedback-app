@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../../redux/utilFunctions';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { changeFilter } from '../../redux/slices/filterSlice';
 import TagButton from '../../ui/TagButton';
 import { filterList } from '../../utils/labels';
@@ -7,7 +7,7 @@ interface Props {
   setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FilterContainer = ({ setOpenNav }: Props) => {
+const FilterCard = ({ setOpenNav }: Props) => {
   const dispatch = useAppDispatch();
   const filter = useAppSelector(state => state.filter.value);
 
@@ -27,4 +27,4 @@ const FilterContainer = ({ setOpenNav }: Props) => {
   );
 };
 
-export default FilterContainer;
+export default FilterCard;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { fetchSuggestions } from '../utils/hooks';
+import { fetchSuggestions } from '../utils/utilFunctions';
 import { FeedbackType } from '../utils/type';
 import FeedbackForm from '../components/FeedbackForm';
 import FeedbackFormContainer from './pageTemplates/FeedbackFormContainer';

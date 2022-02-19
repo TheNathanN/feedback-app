@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchUser, pluralCheck } from '../../utils/hooks';
+import { fetchUser, pluralCheck } from '../../utils/utilFunctions';
 import { CommentType, UserType } from '../../utils/type';
 import Button from '../../ui/Button';
 import TextArea from '../../ui/TextArea';

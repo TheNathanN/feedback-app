@@ -1,5 +1,5 @@
 import { CommentType } from '../../utils/type';
-import { getCommentCount, pluralCheck } from '../../utils/hooks';
+import { getCommentCount, pluralCheck } from '../../utils/utilFunctions';
 import CommentContainer from './CommentContainer';
 
 interface Props {

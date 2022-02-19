@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Button from '../../ui/Button';
 import TextArea from '../../ui/TextArea';
-import { fetchUser } from '../../utils/hooks';
+import { fetchUser } from '../../utils/utilFunctions';
 import { ReplyType, UserType } from '../../utils/type';
 
 interface Props {

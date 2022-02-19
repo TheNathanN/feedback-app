@@ -2,7 +2,7 @@ import CommentCount from '../ui/CommentCount';
 import TagButton from '../ui/TagButton';
 import UpvoteButton from '../ui/UpvoteButton';
 import { FeedbackType } from '../utils/type';
-import { getCommentCount } from '../utils/hooks';
+import { getCommentCount } from '../utils/utilFunctions';
 import { Link } from 'react-router-dom';
 
 interface Props {

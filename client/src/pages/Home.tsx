@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useAppSelector } from '../redux/utilFunctions';
-import { fetchSuggestions, getCommentCount } from '../utils/hooks';
+import { useAppSelector } from '../redux/hooks';
+import { fetchSuggestions, getCommentCount } from '../utils/utilFunctions';
 import { FeedbackType } from '../utils/type';
 import { sorterList } from '../utils/labels';
 import FeedbackCard from '../components/FeedbackCard';

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FeedbackType } from '../utils/type';
-import { fetchSuggestions } from '../utils/hooks';
+import { fetchSuggestions } from '../utils/utilFunctions';
 import FeedbackCard from '../components/FeedbackCard';
 import BackButton from '../ui/BackButton';
 import Button from '../ui/Button';
