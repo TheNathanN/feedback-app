@@ -41,7 +41,7 @@ export const getStatusCount = (
 
   if (feedbackList) {
     for (let i = 0; i < feedbackList.length; i++) {
-      feedbackList[i].status === status ? (count += 1) : (count = count);
+      feedbackList[i].status === status ? (count += 1) : (count += 0);
     }
   }
 
