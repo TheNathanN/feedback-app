@@ -1,8 +1,12 @@
-import React from 'react';
+import { FeedbackType } from '../../utils/type';
+import { roadmapLabels } from '../../utils/labels';
+import RoadmapLabel from './RoadmapLabel';
 
-const RoadmapCard = () => {
-  const roadmapLabels = ['Planned', 'In-Progress', 'Live'];
+interface Props {
+  feedbackList?: FeedbackType[];
+}
 
+const RoadmapCard = ({ feedbackList }: Props) => {
   return (
     <div className='w-full bg-white rounded-md p-4 flex items-center justify-start flex-wrap mt-4 '>
       <div className='flex items-center justify-between w-full '>
@@ -14,11 +18,10 @@ const RoadmapCard = () => {
           View
         </button>
       </div>
-      <div>
-        <div className='flex items-center justify-evenly '>
-          <div className='w-2 h-2 bg-orange rounded-full '></div>
-          <p>{roadmapLabels[0]}</p>
-        </div>
+      <div className='w-full mt-4 '>
+        {roadmapLabels.map(label => (
+          <RoadmapLabel status={label} feedbackList={feedbackList} />
+        ))}
       </div>
     </div>
   );

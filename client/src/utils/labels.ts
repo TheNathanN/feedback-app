@@ -5,3 +5,4 @@ export const sorterList = [
   'Most Comments',
   'Least Comments',
 ];
+export const roadmapLabels = ['Planned', 'In-Progress', 'Live'];

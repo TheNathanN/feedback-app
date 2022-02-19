@@ -56,7 +56,11 @@ const Home = () => {
     >
       <Nav openNav={openNav} setOpenNav={setOpenNav} />
       <div className={`w-full h-full relative z-10  `}>
-        {openNav ? <MobileNav setOpenNav={setOpenNav} /> : ''}
+        {openNav ? (
+          <MobileNav setOpenNav={setOpenNav} feedbackList={feedbackList} />
+        ) : (
+          ''
+        )}
         <AddFeedbackBar />
         <div className='w-full h-full bg-whiteBlue2 px-4 pt-4 pb-8 '>
           <div className='flex flex-col items-center justify-center h-full w-full '>

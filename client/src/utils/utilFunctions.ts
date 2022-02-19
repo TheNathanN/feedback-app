@@ -1,4 +1,4 @@
-import { CommentType } from './type';
+import { CommentType, FeedbackType } from './type';
 
 export const fetchSuggestions = async (
   db: string,
@@ -31,6 +31,21 @@ export const getCommentCount = (comments?: CommentType[]) => {
     return totalCount;
   }
   return 0;
+};
+
+export const getStatusCount = (
+  status: string,
+  feedbackList?: FeedbackType[]
+) => {
+  let count = 0;
+
+  if (feedbackList) {
+    for (let i = 0; i < feedbackList.length; i++) {
+      feedbackList[i].status === status ? (count += 1) : (count = count);
+    }
+  }
+
+  return count;
 };
 
 export const pluralCheck = (count: number) => {
