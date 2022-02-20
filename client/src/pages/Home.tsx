@@ -41,11 +41,14 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    try {
-      fetchSuggestions('data.json', setFeedbackList);
-    } catch (err) {
-      console.log(err);
-    }
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    fetchSuggestions('data.json', setFeedbackList, signal);
+
+    return () => {
+      controller.abort();
+    };
   }, [sorter]);
 
   return (

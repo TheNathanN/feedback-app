@@ -1,13 +1,11 @@
 import React from 'react';
 import { getStatusCount } from '../../utils/utilFunctions';
-import { FeedbackType } from '../../utils/type';
+import { FeedbackType, StatusType } from '../../utils/type';
 
 interface Props {
-  selectedStatus: 'Planned' | 'In-Progress' | 'Live';
-  setSelectedStatus: React.Dispatch<
-    React.SetStateAction<'Planned' | 'In-Progress' | 'Live'>
-  >;
-  status: 'Planned' | 'In-Progress' | 'Live';
+  selectedStatus: StatusType;
+  setSelectedStatus: React.Dispatch<React.SetStateAction<StatusType>>;
+  status: StatusType;
   feedback?: FeedbackType[];
 }
 
@@ -19,7 +17,7 @@ const RoadmapNavLabel = ({
 }: Props) => {
   return (
     <div
-      className={`w-1/3 py-4 text-body3 font-bold text-navy text-opacity-30 cursor-pointer ${
+      className={`w-1/3 py-4 text-body3 font-bold text-navy text-opacity-30 cursor-pointer transition-all ${
         status === selectedStatus
           ? `text-opacity-100 font-bold border-b-4 ${
               status === 'Planned'

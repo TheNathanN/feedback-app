@@ -2,7 +2,7 @@ import React from 'react';
 
 interface Props {
   active: boolean;
-  total: number;
+  total?: number;
 }
 
 const UpvoteButton = ({ active, total }: Props) => {

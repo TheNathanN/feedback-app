@@ -5,4 +5,17 @@ export const sorterList = [
   'Most Comments',
   'Least Comments',
 ];
-export const roadmapLabels = ['Planned', 'In-Progress', 'Live'];
+export const roadmapLabels = [
+  {
+    title: 'Planned',
+    description: 'Ideas prioritized for research',
+  },
+  {
+    title: 'In-Progress',
+    description: 'Features currently being developed',
+  },
+  {
+    title: 'Live',
+    description: 'Released features',
+  },
+];

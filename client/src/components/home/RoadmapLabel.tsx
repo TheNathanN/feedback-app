@@ -18,7 +18,7 @@ const RoadmapLabel = ({ status, feedbackList }: Props) => {
             ? 'bg-purple'
             : 'bg-lightBlue'
         }  `}
-      ></div>
+      />
       <p className='w-8/12 mx-4'>{status}</p>
       <p className='font-bold '>{getStatusCount(status, feedbackList)}</p>
     </div>

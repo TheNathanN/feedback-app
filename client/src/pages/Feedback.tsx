@@ -10,18 +10,19 @@ import AddCommentCard from '../components/feedback/AddCommentCard';
 
 const Feedback = () => {
   const { id } = useParams();
-  const [feedbackList, setFeedbackList] = useState<
-    FeedbackType[] | undefined
-  >();
+  const [feedbackList, setFeedbackList] = useState<FeedbackType[]>();
   const feedback = feedbackList?.filter(item => `${item.id}` === id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    try {
-      fetchSuggestions('../data.json', setFeedbackList);
-    } catch (err) {
-      console.log(err);
-    }
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    fetchSuggestions('../data.json', setFeedbackList, signal);
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return (

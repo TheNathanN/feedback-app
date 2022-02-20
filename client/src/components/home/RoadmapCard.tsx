@@ -23,7 +23,11 @@ const RoadmapCard = ({ feedbackList }: Props) => {
       </div>
       <div className='w-full mt-4 '>
         {roadmapLabels.map((label, indx) => (
-          <RoadmapLabel key={indx} status={label} feedbackList={feedbackList} />
+          <RoadmapLabel
+            key={indx}
+            status={label.title}
+            feedbackList={feedbackList}
+          />
         ))}
       </div>
     </div>

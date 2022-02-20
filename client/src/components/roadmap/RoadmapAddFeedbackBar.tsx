@@ -4,7 +4,7 @@ import BackButton from '../../ui/BackButton';
 
 const RoadmapAddFeedbackBar = () => {
   return (
-    <div className='bg-darkNavy p-6 '>
+    <div className='bg-darkNavy p-6 md:rounded-lg '>
       <Link to='/'>
         <BackButton color='navy' />
       </Link>

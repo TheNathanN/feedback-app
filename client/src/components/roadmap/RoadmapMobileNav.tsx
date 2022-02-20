@@ -1,11 +1,9 @@
-import { FeedbackType } from '../../utils/type';
+import { FeedbackType, StatusType } from '../../utils/type';
 import RoadmapNavLabel from './RoadmapNavLabel';
 
 interface Props {
-  selectedStatus: 'Planned' | 'In-Progress' | 'Live';
-  setSelectedStatus: React.Dispatch<
-    React.SetStateAction<'Planned' | 'In-Progress' | 'Live'>
-  >;
+  selectedStatus: StatusType;
+  setSelectedStatus: React.Dispatch<React.SetStateAction<StatusType>>;
   feedback?: FeedbackType[];
 }
 

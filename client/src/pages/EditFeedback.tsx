@@ -30,13 +30,13 @@ const EditFeedback = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const controller = new AbortController();
+    const signal = controller.signal;
+
     if (!feedbackList) {
-      try {
-        fetchSuggestions('../../data.json', setFeedbackList);
-      } catch (err) {
-        console.log(err);
-      }
+      fetchSuggestions('../../data.json', setFeedbackList, signal);
     }
+
     const setEditDefault = () => {
       const feedback = feedbackList?.filter(item => `${item.id}` === id);
       setTitle(feedback ? feedback[0].title : '');
@@ -46,6 +46,10 @@ const EditFeedback = () => {
     };
 
     setEditDefault();
+
+    return () => {
+      controller.abort();
+    };
   }, [feedbackList, id]);
 
   const resetForm = () => {

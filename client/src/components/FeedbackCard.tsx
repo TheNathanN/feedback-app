@@ -6,29 +6,30 @@ import { getCommentCount } from '../utils/utilFunctions';
 import { Link } from 'react-router-dom';
 
 interface Props {
-  feedback: FeedbackType;
+  feedback?: FeedbackType;
+  statusCard?: true;
 }
 
-const FeedbackCard = ({ feedback }: Props) => {
-  const count = getCommentCount(feedback.comments);
+const FeedbackCard = ({ feedback, statusCard }: Props) => {
+  const count = getCommentCount(feedback?.comments);
 
   return (
-    <div className='bg-white p-6 rounded-lg my-2  '>
+    <div className={`bg-white rounded-lg my-2 ${statusCard ? '' : 'p-6'}  `}>
       <div className='cursor-pointer '>
-        <Link to={`/feedback/${feedback.id}`}>
-          <h2 className='text-body3 font-bold text-navy '>{feedback.title}</h2>
+        <Link to={`/feedback/${feedback?.id}`}>
+          <h2 className='text-body3 font-bold text-navy '>{feedback?.title}</h2>
           <p className='text-body3 text-lightNavy my-2 '>
-            {feedback.description}
+            {feedback?.description}
           </p>
         </Link>
       </div>
 
-      <TagButton active={false}>{feedback.category}</TagButton>
+      <TagButton active={false}>{feedback?.category}</TagButton>
 
       <div className='flex items-center justify-between mt-4 '>
-        <UpvoteButton active={false} total={feedback.upvotes} />
+        <UpvoteButton active={false} total={feedback?.upvotes} />
         <div>
-          <Link to={`/feedback/${feedback.id}`}>
+          <Link to={`/feedback/${feedback?.id}`}>
             <CommentCount count={count} />
           </Link>
         </div>

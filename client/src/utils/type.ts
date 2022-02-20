@@ -26,3 +26,5 @@ export interface FeedbackType {
   description: string;
   comments?: CommentType[];
 }
+
+export type StatusType = 'Planned' | 'In-Progress' | 'Live';
