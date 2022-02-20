@@ -51,8 +51,8 @@ const NewFeedback = () => {
           setState={setDetail}
         />
 
-        <div>
-          <div className='my-4 '>
+        <div className='md:w-full md:flex md:flex-row-reverse md:justify-start md:mb-4 '>
+          <div className='my-4 md:my-0 md:pl-4 '>
             <Button color='purple' full={true} type='submit'>
               Add Feedback
             </Button>

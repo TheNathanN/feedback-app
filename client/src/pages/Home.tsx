@@ -71,7 +71,7 @@ const Home = () => {
         </div>
 
         <div className='hidden md:flex w-1/3 p-4 '>
-          <RoadmapCard />
+          <RoadmapCard feedbackList={feedbackList} />
         </div>
       </div>
 
