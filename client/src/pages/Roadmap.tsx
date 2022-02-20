@@ -23,32 +23,34 @@ const Roadmap = () => {
   }, []);
 
   return (
-    <div className='md:py-12 md:px-8 '>
-      <div className='md:mb-6 '>
-        <RoadmapAddFeedbackBar />
-      </div>
-      <div className='md:hidden '>
-        <RoadmapMobileNav
-          selectedStatus={selectedStatus}
-          setSelectedStatus={setSelectedStatus}
-          feedback={feedbackList}
-        />
-        <div className='p-4 '>
-          <RoadmapContentContainer
-            selectedStatus={selectedStatus}
-            feedbackList={feedbackList}
-          />
+    <div className='md:py-12 md:px-8 lg:flex lg:items-center lg:justify-center '>
+      <div>
+        <div className='md:mb-6 lg:max-w-[1110px] '>
+          <RoadmapAddFeedbackBar />
         </div>
-      </div>
-
-      <div className='hidden md:flex '>
-        {roadmapLabels.map((label, indx) => (
-          <RoadmapContentContainer
-            key={indx}
-            selectedStatus={label.title}
-            feedbackList={feedbackList}
+        <div className='md:hidden '>
+          <RoadmapMobileNav
+            selectedStatus={selectedStatus}
+            setSelectedStatus={setSelectedStatus}
+            feedback={feedbackList}
           />
-        ))}
+          <div className='p-4 '>
+            <RoadmapContentContainer
+              selectedStatus={selectedStatus}
+              feedbackList={feedbackList}
+            />
+          </div>
+        </div>
+
+        <div className='hidden md:flex '>
+          {roadmapLabels.map((label, indx) => (
+            <RoadmapContentContainer
+              key={indx}
+              selectedStatus={label.title}
+              feedbackList={feedbackList}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
