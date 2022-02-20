@@ -28,9 +28,7 @@ const Feedback = () => {
   return (
     <div className='min-h-screen min-w-screen px-6 py-6 w-full '>
       <div className='w-full flex items-center justify-between'>
-        <Link to='/'>
-          <BackButton color='white' />
-        </Link>
+        <BackButton color='white' />
         <Link to={`/feedback/${id}/edit`}>
           <Button type='button' color='blue'>
             Edit Feedback
