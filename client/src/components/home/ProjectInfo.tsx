@@ -5,12 +5,12 @@ interface Props {
   setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Nav = ({ openNav, setOpenNav }: Props) => {
+const ProjectInfo = ({ openNav, setOpenNav }: Props) => {
   const toggleNav = () => setOpenNav(!openNav);
 
   return (
-    <div className='bg-gradient-to-tr from-lightBlue via-purple to-[#E84D70] flex justify-between items-center  py-4 px-4 w-full '>
-      <div className='text-white '>
+    <div className='bg-gradient-to-tr from-lightBlue via-purple to-[#E84D70] flex justify-between items-center p-4 w-full h-full md:rounded-md '>
+      <div className='text-white md:w-full md:h-full '>
         <h1 className='text-body2 font-bold '>Project Name</h1>
         <p className='text-body3 font-medium '>Feedback Board</p>
       </div>
@@ -36,4 +36,4 @@ const Nav = ({ openNav, setOpenNav }: Props) => {
   );
 };
 
-export default Nav;
+export default ProjectInfo;

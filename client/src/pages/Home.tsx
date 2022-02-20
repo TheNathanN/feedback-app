@@ -6,7 +6,7 @@ import { sorterList } from '../utils/labels';
 import FeedbackCard from '../components/FeedbackCard';
 import NoFeedbackCard from '../components/NoFeedbackCard';
 import AddFeedbackBar from '../components/home/AddFeedbackBar';
-import Nav from '../components/home/Nav';
+import ProjectInfo from '../components/home/ProjectInfo';
 import MobileNav from '../components/home/MobileNav';
 import FilterCard from '../components/home/FilterCard';
 import RoadmapCard from '../components/home/RoadmapCard';
@@ -61,12 +61,16 @@ const Home = () => {
           : ''
       } `}
     >
-      <div className='flex w-full '>
-        <Nav openNav={openNav} setOpenNav={setOpenNav} />
-        <div className='hidden md:flex w-full '>
+      <div className='flex w-full h-full py-8 '>
+        <div className='w-full md:w-1/3 md:p-4 '>
+          <ProjectInfo openNav={openNav} setOpenNav={setOpenNav} />
+        </div>
+
+        <div className='hidden md:flex w-1/3 p-4 '>
           <FilterCard />
         </div>
-        <div className='hidden md:flex w-full '>
+
+        <div className='hidden md:flex w-1/3 p-4 '>
           <RoadmapCard />
         </div>
       </div>
@@ -78,13 +82,15 @@ const Home = () => {
           ''
         )}
 
-        <AddFeedbackBar />
+        <div className='md:px-4 '>
+          <AddFeedbackBar />
+        </div>
 
         <div className='w-full h-full bg-whiteBlue2 px-4 pt-4 pb-8 '>
           <div className='flex flex-col items-center justify-center h-full w-full '>
             {feedbackList && filter === 'All' ? (
               feedbackList.sort(sortFeedback).map((feedback: FeedbackType) => (
-                <div className='w-11/12 md:w-10/12' key={feedback.id}>
+                <div className='w-11/12 md:w-full' key={feedback.id}>
                   <FeedbackCard feedback={feedback} />
                 </div>
               ))
