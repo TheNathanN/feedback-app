@@ -20,7 +20,7 @@ const UserCard = ({ user, replyState, setReplyState, setReplyUser }: Props) => {
   };
 
   return (
-    <div className='flex items-center justify-between text-body3 mt-4 '>
+    <div className='flex items-center justify-between text-body3 mt-4 md:text-h4 '>
       <img className='rounded-full w-11 mr-4 ' src={`.${image}`} alt={name} />
       <div className='w-full '>
         <p className='font-bold text-navy '>{name}</p>

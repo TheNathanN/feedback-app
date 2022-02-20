@@ -105,23 +105,49 @@ const EditFeedback = () => {
           setState={setDetail}
         />
 
-        <div>
-          <div className='my-4 '>
-            <Button color='purple' full={true} type='submit'>
-              Add Feedback
-            </Button>
+        <div className='md:flex'>
+          <div className='md:hidden'>
+            <div className='my-4  '>
+              <Button color='purple' full={true} type='submit'>
+                Save Changes
+              </Button>
+            </div>
+            <Link to={`/feedback/${id}`}>
+              <div>
+                <Button color='navy' type='button' full={true}>
+                  Cancel
+                </Button>
+              </div>
+            </Link>
+            <div className='mt-4 md:mt-0' onClick={resetForm}>
+              <Button color='red' type='button' full={true}>
+                Delete
+              </Button>
+            </div>
           </div>
 
-          <Link to={`/feedback/${id}`}>
-            <Button color='navy' type='button' full={true}>
-              Cancel
-            </Button>
-          </Link>
-
-          <div className='mt-4' onClick={resetForm}>
-            <Button color='red' type='button' full={true}>
-              Delete
-            </Button>
+          <div className='hidden md:flex w-full mb-4 '>
+            <div className='w-1/2 ' onClick={resetForm}>
+              <div className='w-1/3 '>
+                <Button color='red' type='button' full={true}>
+                  Delete
+                </Button>
+              </div>
+            </div>
+            <div className='flex w-1/2 justify-between '>
+              <div className='w-1/3 '>
+                <Link to={`/feedback/${id}`}>
+                  <Button color='navy' type='button' full={true}>
+                    Cancel
+                  </Button>
+                </Link>
+              </div>
+              <div className='w-2/3 px-4 '>
+                <Button color='purple' type='submit' full={true}>
+                  Save Changes
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </FeedbackForm>

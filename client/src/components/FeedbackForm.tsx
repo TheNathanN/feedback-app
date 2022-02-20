@@ -35,7 +35,7 @@ const FeedbackFormContainer = ({
   };
 
   return (
-    <div className='bg-white w-full h-full rounded-lg p-4 relative '>
+    <div className='bg-white w-full h-full rounded-lg p-4 relative md:w-[540px] '>
       <div className='absolute -top-5 md:hidden '>
         {type === 'new' ? (
           <MobileNewFeedbackIcon />

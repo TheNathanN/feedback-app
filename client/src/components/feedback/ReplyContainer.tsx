@@ -24,7 +24,8 @@ const ReplyContainer = ({
         setReplyState={setReplyState}
         setReplyUser={setReplyUser}
       />
-      <p className='text-body3 text-lightNavy my-4 md:pl-16 '>
+
+      <p className='text-body3 text-lightNavy my-4 md:pl-16 md:text-body2  '>
         <span className='font-bold text-purple '>@{replyingTo} </span>
         {content}
       </p>

@@ -15,21 +15,29 @@ const FeedbackCard = ({ feedback, statusCard }: Props) => {
 
   return (
     <div
-      className={`bg-white rounded-lg my-2 md:flex md:justify-between ${
-        statusCard ? '' : 'p-6'
-      }  `}
+      className={`bg-white rounded-lg my-2 ${
+        !statusCard ? 'p-6 md:flex md:justify-between' : ''
+      }`}
     >
-      <div className='cursor-pointer md:flex '>
-        <div className='hidden md:block ml-2 mr-10 '>
+      <div className={`cursor-pointer ${!statusCard ? 'md:flex' : ''} `}>
+        <div className={`hidden ${!statusCard ? 'md:block ml-2 mr-10' : ''} `}>
           <UpvoteButton active={false} total={feedback?.upvotes} />
         </div>
 
         <div>
           <Link to={`/feedback/${feedback?.id}`}>
-            <h2 className='text-body3 font-bold text-navy md:text-h3 '>
+            <h2
+              className={`text-body3 font-bold text-navy ${
+                !statusCard ? 'md:text-h3' : ''
+              } `}
+            >
               {feedback?.title}
             </h2>
-            <p className='text-body3 text-lightNavy my-2 md:text-body1 '>
+            <p
+              className={`text-body3 text-lightNavy my-2 ${
+                !statusCard ? 'md:text-body1' : ''
+              } `}
+            >
               {feedback?.description}
             </p>
           </Link>
@@ -38,8 +46,12 @@ const FeedbackCard = ({ feedback, statusCard }: Props) => {
         </div>
       </div>
 
-      <div className='flex items-center justify-between mt-4 md:mt-0 '>
-        <div className='md:hidden '>
+      <div
+        className={`flex items-center justify-between mt-4 ${
+          !statusCard ? 'md:mt-0' : ''
+        } `}
+      >
+        <div className={!statusCard ? 'md:hidden ' : ''}>
           <UpvoteButton active={false} total={feedback?.upvotes} />
         </div>
 

@@ -22,7 +22,11 @@ const CommentContainer = ({ comment }: Props) => {
         replyState={mainReply}
         setReplyState={setMainReply}
       />
-      <p className='text-body3 text-lightNavy my-4 md:ml-14 '>{content}</p>
+
+      <p className='text-body3 text-lightNavy my-4 md:ml-14 md:text-body2 '>
+        {content}
+      </p>
+
       {replies ? (
         <div className='relative h-full w-full '>
           <div className='border-l-[1px] border-whiteBlue h-4/6 md:h-60 absolute md:-top-12 md:left-4 '></div>
