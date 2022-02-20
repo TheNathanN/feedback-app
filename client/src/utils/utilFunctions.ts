@@ -3,7 +3,7 @@ import { CommentType, FeedbackType } from './type';
 export const fetchSuggestions = async (
   db: string,
   setState: React.Dispatch<any>,
-  signal: AbortSignal
+  signal?: AbortSignal
 ) => {
   try {
     const response = await fetch(db, { signal: signal });

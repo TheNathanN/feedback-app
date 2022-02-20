@@ -13,9 +13,9 @@ const Roadmap = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    const signal = controller.signal;
+    // const signal = controller.signal;
 
-    fetchSuggestions('data.json', setFeedbackList, signal);
+    fetchSuggestions('data.json', setFeedbackList);
 
     return () => {
       controller.abort();
