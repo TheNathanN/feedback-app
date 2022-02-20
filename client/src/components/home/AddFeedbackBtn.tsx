@@ -4,8 +4,8 @@ import Button from '../../ui/Button';
 const AddFeedbackBtn = () => {
   return (
     <Link to='/feedback/new'>
-      <div className='w-32 h-9 '>
-        <Button type='button' color='purple'>
+      <div className='w-32 h-9 md:w-36 md:h-12 '>
+        <Button type='button' color='purple' full={true}>
           <svg
             width='9'
             height='9'

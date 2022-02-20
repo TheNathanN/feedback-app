@@ -10,9 +10,11 @@ const ProjectInfo = ({ openNav, setOpenNav }: Props) => {
 
   return (
     <div className='bg-gradient-to-tr from-lightBlue via-purple to-[#E84D70] flex justify-between items-center p-4 w-full h-full md:rounded-md '>
-      <div className='text-white md:w-full md:h-full '>
-        <h1 className='text-body2 font-bold '>Project Name</h1>
-        <p className='text-body3 font-medium '>Feedback Board</p>
+      <div className='text-white md:w-full md:h-full md:flex md:flex-col md:justify-end '>
+        <h1 className='text-body2 font-bold md:text-h2 '>Frontend Mentor</h1>
+        <p className='text-body3 font-medium md:text-body2 md:text-opacity-25 '>
+          Feedback Board
+        </p>
       </div>
 
       <div className='cursor-pointer md:hidden ' onClick={toggleNav}>

@@ -4,7 +4,7 @@ import EmptyIllustration from './svg/EmptyIllustration';
 
 const NoFeedbackCard = () => {
   return (
-    <div className='flex flex-col items-center justify-center text-center bg-white rounded-lg pb-10 my-2 h-full '>
+    <div className='flex flex-col items-center justify-center text-center bg-white rounded-lg pb-10 my-2 h-full  w-full '>
       <div className='my-10 '>
         <EmptyIllustration />
       </div>

@@ -14,20 +14,35 @@ const FeedbackCard = ({ feedback, statusCard }: Props) => {
   const count = getCommentCount(feedback?.comments);
 
   return (
-    <div className={`bg-white rounded-lg my-2 ${statusCard ? '' : 'p-6'}  `}>
-      <div className='cursor-pointer '>
-        <Link to={`/feedback/${feedback?.id}`}>
-          <h2 className='text-body3 font-bold text-navy '>{feedback?.title}</h2>
-          <p className='text-body3 text-lightNavy my-2 '>
-            {feedback?.description}
-          </p>
-        </Link>
+    <div
+      className={`bg-white rounded-lg my-2 md:flex md:justify-between ${
+        statusCard ? '' : 'p-6'
+      }  `}
+    >
+      <div className='cursor-pointer md:flex '>
+        <div className='hidden md:block ml-2 mr-10 '>
+          <UpvoteButton active={false} total={feedback?.upvotes} />
+        </div>
+
+        <div>
+          <Link to={`/feedback/${feedback?.id}`}>
+            <h2 className='text-body3 font-bold text-navy md:text-h3 '>
+              {feedback?.title}
+            </h2>
+            <p className='text-body3 text-lightNavy my-2 md:text-body1 '>
+              {feedback?.description}
+            </p>
+          </Link>
+
+          <TagButton active={false}>{feedback?.category}</TagButton>
+        </div>
       </div>
 
-      <TagButton active={false}>{feedback?.category}</TagButton>
+      <div className='flex items-center justify-between mt-4 md:mt-0 '>
+        <div className='md:hidden '>
+          <UpvoteButton active={false} total={feedback?.upvotes} />
+        </div>
 
-      <div className='flex items-center justify-between mt-4 '>
-        <UpvoteButton active={false} total={feedback?.upvotes} />
         <div>
           <Link to={`/feedback/${feedback?.id}`}>
             <CommentCount count={count} />

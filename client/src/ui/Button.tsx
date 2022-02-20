@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Button = ({ children, color, type, full }: Props) => {
-  const basicStyling = `font-sans text-center text-body3 font-bold text-white rounded-md hover:opacity-80 transition-all cursor-pointer flex items-center justify-center py-2 px-3 ${
+  const basicStyling = `font-sans text-center text-body3 font-bold text-white rounded-md hover:opacity-80 transition-all cursor-pointer flex items-center justify-center py-2 px-3 h-full ${
     full ? 'w-full' : ''
   } `;
   const purpleClass = basicStyling + 'bg-purple';

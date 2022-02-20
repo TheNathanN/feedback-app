@@ -61,7 +61,7 @@ const Home = () => {
           : ''
       } `}
     >
-      <div className='flex w-full h-full py-8 '>
+      <div className='flex w-full h-full md:pt-8 md:pb-4 '>
         <div className='w-full md:w-1/3 md:p-4 '>
           <ProjectInfo openNav={openNav} setOpenNav={setOpenNav} />
         </div>
@@ -82,7 +82,7 @@ const Home = () => {
           ''
         )}
 
-        <div className='md:px-4 '>
+        <div className='md:px-4 md:rounded-md '>
           <AddFeedbackBar />
         </div>
 
@@ -100,7 +100,7 @@ const Home = () => {
               filteredFeedback
                 .sort(sortFeedback)
                 .map((feedback: FeedbackType) => (
-                  <div className='w-11/12 md:w-10/12' key={feedback.id}>
+                  <div className='w-11/12 md:w-full' key={feedback.id}>
                     <FeedbackCard feedback={feedback} />
                   </div>
                 ))
