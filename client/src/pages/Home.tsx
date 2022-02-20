@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <div
-      className={`min-w-screen min-h-screen flex flex-col items-center justify-center lg:flex-row lg:pt-16 lg:pb-16  lg:pr-20 ${
+      className={`min-w-screen min-h-screen flex flex-col lg:items-center lg:justify-center lg:flex-row lg:pt-16 lg:pb-16  lg:pr-20 ${
         openNav
           ? 'max-w-screen max-h-screen overflow-hidden md:overflow-scroll '
           : ''
