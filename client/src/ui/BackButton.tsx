@@ -13,26 +13,28 @@ const BackButton = ({ color }: Props) => {
   const navigate = useNavigate();
 
   return (
-    <button
-      className={
-        color === 'white' ? whiteClass : color === 'navy' ? navyClass : ''
-      }
-      onClick={() => navigate(-1)}
-    >
-      <svg width='7' height='10' xmlns='http://www.w3.org/2000/svg'>
-        <path
-          d='M6 9L2 5l4-4'
-          stroke={
-            color === 'white' ? '#4661E6' : color === 'navy' ? '#ffffff' : ''
-          }
-          strokeWidth='2'
-          fill='none'
-          fillRule='evenodd'
-        />
-      </svg>
+    <div onClick={() => navigate(-1)}>
+      <button
+        className={
+          color === 'white' ? whiteClass : color === 'navy' ? navyClass : ''
+        }
+        type='button'
+      >
+        <svg width='7' height='10' xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M6 9L2 5l4-4'
+            stroke={
+              color === 'white' ? '#4661E6' : color === 'navy' ? '#ffffff' : ''
+            }
+            strokeWidth='2'
+            fill='none'
+            fillRule='evenodd'
+          />
+        </svg>
 
-      <p className='ml-4'>Go Back</p>
-    </button>
+        <p className='ml-4'>Go Back</p>
+      </button>
+    </div>
   );
 };
 
