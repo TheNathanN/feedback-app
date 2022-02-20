@@ -11,6 +11,7 @@ export const fetchSuggestions = async (
     setState(data.productRequests);
   } catch (err) {
     console.log(err);
+    return;
   }
 };
 
