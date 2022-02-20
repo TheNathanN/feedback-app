@@ -9,7 +9,7 @@ const Nav = ({ openNav, setOpenNav }: Props) => {
   const toggleNav = () => setOpenNav(!openNav);
 
   return (
-    <div className='bg-gradient-to-tr from-lightBlue via-purple to-[#E84D70] flex justify-between items-center  py-4 px-4 '>
+    <div className='bg-gradient-to-tr from-lightBlue via-purple to-[#E84D70] flex justify-between items-center  py-4 px-4 w-full '>
       <div className='text-white '>
         <h1 className='text-body2 font-bold '>Project Name</h1>
         <p className='text-body3 font-medium '>Feedback Board</p>

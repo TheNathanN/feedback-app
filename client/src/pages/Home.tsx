@@ -8,6 +8,8 @@ import NoFeedbackCard from '../components/NoFeedbackCard';
 import AddFeedbackBar from '../components/home/AddFeedbackBar';
 import Nav from '../components/home/Nav';
 import MobileNav from '../components/home/MobileNav';
+import FilterCard from '../components/home/FilterCard';
+import RoadmapCard from '../components/home/RoadmapCard';
 
 const Home = () => {
   const [openNav, setOpenNav] = useState(false);
@@ -54,17 +56,30 @@ const Home = () => {
   return (
     <div
       className={`min-w-screen min-h-screen flex flex-col ${
-        openNav ? 'max-w-screen max-h-screen overflow-hidden' : ''
+        openNav
+          ? 'max-w-screen max-h-screen overflow-hidden md:overflow-scroll '
+          : ''
       } `}
     >
-      <Nav openNav={openNav} setOpenNav={setOpenNav} />
-      <div className={`w-full h-full relative z-10  `}>
+      <div className='flex w-full '>
+        <Nav openNav={openNav} setOpenNav={setOpenNav} />
+        <div className='hidden md:flex w-full '>
+          <FilterCard />
+        </div>
+        <div className='hidden md:flex w-full '>
+          <RoadmapCard />
+        </div>
+      </div>
+
+      <div className='w-full h-full relative z-10 '>
         {openNav ? (
           <MobileNav setOpenNav={setOpenNav} feedbackList={feedbackList} />
         ) : (
           ''
         )}
+
         <AddFeedbackBar />
+
         <div className='w-full h-full bg-whiteBlue2 px-4 pt-4 pb-8 '>
           <div className='flex flex-col items-center justify-center h-full w-full '>
             {feedbackList && filter === 'All' ? (

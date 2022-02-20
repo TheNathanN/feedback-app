@@ -4,7 +4,7 @@ import TagButton from '../../ui/TagButton';
 import { filterList } from '../../utils/labels';
 
 interface Props {
-  setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenNav?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const FilterCard = ({ setOpenNav }: Props) => {
@@ -13,11 +13,14 @@ const FilterCard = ({ setOpenNav }: Props) => {
 
   const handleClick = (item: string) => {
     dispatch(changeFilter(item));
-    setOpenNav(false);
+
+    if (setOpenNav) {
+      setOpenNav(false);
+    }
   };
 
   return (
-    <div className='w-11/12 bg-white rounded-md p-4 flex items-center justify-start flex-wrap '>
+    <div className='w-11/12 bg-white rounded-md p-4 flex items-center justify-start flex-wrap md:w-full '>
       {filterList.map((item, index) => (
         <div key={index} onClick={() => handleClick(item)} className='m-2 '>
           <TagButton active={filter === item ? true : false}>{item}</TagButton>

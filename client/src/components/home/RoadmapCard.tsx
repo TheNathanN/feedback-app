@@ -9,7 +9,7 @@ interface Props {
 
 const RoadmapCard = ({ feedbackList }: Props) => {
   return (
-    <div className='w-11/12 bg-white rounded-md p-4 flex items-center justify-start flex-wrap mt-4 '>
+    <div className='w-11/12 bg-white rounded-md p-4 flex items-center justify-start flex-wrap mt-4 md:w-full md:mt-0 '>
       <div className='flex items-center justify-between w-full '>
         <h2 className='font-bold text-h3 text-navy '>Roadmap</h2>
         <Link to='/roadmap'>
