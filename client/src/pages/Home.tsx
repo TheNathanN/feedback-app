@@ -27,11 +27,11 @@ const Home = () => {
     <div
       className={`min-w-screen min-h-screen flex flex-col lg:items-center lg:justify-center lg:flex-row lg:pt-16 lg:pb-16  lg:pr-20 ${
         openNav
-          ? 'max-w-screen max-h-screen overflow-hidden md:overflow-scroll '
+          ? 'max-w-screen max-h-screen overflow-hidden md:overflow-scroll lg:max-h-full lg:max-w-full '
           : ''
       } `}
     >
-      <div className='lg:max-w-[1110px] lg:flex '>
+      <div className='max-w-[1110px] lg:flex '>
         <div className='lg:w-4/12 lg:h-full lg:flex lg:justify-end '>
           <Header
             openNav={openNav}
