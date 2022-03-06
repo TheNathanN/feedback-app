@@ -19,6 +19,7 @@ model User {
   username String @unique
   Comment Comment[]
   Reply Reply[]
+  Key Key[]
 }
 
 model Feedback {
@@ -44,6 +45,14 @@ model Reply {
   id Int @id @default(autoincrement())
   content String @db.VarChar(255)
   replying_to String
+  user_id Int
+  User User @relation(fields: [user_id], references: [id])
+}
+
+model Key {
+  @@map("key")
+  id Int @id @default(autoincrement())
+  token String
   user_id Int
   User User @relation(fields: [user_id], references: [id])
 }

@@ -28,9 +28,10 @@ const FeedbackFormContainer = ({
 }: Props) => {
   const navigate = useNavigate();
   const formInput = {
-    title: title,
-    category: category,
-    detail: detail,
+    id,
+    title,
+    category,
+    detail,
     status: status ? status : 'Suggestion',
   };
 
