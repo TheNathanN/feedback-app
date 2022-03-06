@@ -28,6 +28,7 @@ const Roadmap = () => {
         <div className='md:mb-6 lg:max-w-[1110px] '>
           <RoadmapAddFeedbackBar />
         </div>
+
         <div className='md:hidden '>
           <RoadmapMobileNav
             selectedStatus={selectedStatus}
