@@ -8,11 +8,42 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
+  @@map("user")
   id Int @id @default(autoincrement())
   img String
   name String
   username String @unique
+  Comment Comment[]
+  Reply Reply[]
+}
+
+model Feedback {
+  @@map("feedback")
+  id Int @id @default(autoincrement())
+  title String 
+  category String
+  upvotes Int @default(0)
+  status String @default("Suggestion") 
+  description String @db.VarChar(255)
+}
+
+model Comment {
+  @@map("comment")
+  id Int @id @default(autoincrement())
+  content String @db.VarChar(255)
+  user_id Int
+  User User @relation(fields: [user_id], references: [id]) 
+}
+
+model Reply {
+  @@map("reply")
+  id Int @id @default(autoincrement())
+  content String @db.VarChar(255)
+  replying_to String
+  user_id Int
+  User User @relation(fields: [user_id], references: [id])
 }
