@@ -35,6 +35,25 @@ const FeedbackFormContainer = ({
     status: status ? status : 'Suggestion',
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const createdForm = await fetch(
+      `${process.env.REACT_APP_API_URL}/feedback`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formInput),
+      }
+    );
+
+    const response = await createdForm.json();
+    alert(response);
+    navigate(id ? `/feedback/${id}` : '/');
+  };
+
   return (
     <div className='bg-white w-full h-full rounded-lg p-4 relative md:w-[540px] '>
       <div className='absolute -top-5 md:hidden '>
@@ -49,20 +68,7 @@ const FeedbackFormContainer = ({
       </div>
 
       <h1 className='text-h3 font-bold text-navy my-6 '>{header}</h1>
-      <form
-        onSubmit={() => {
-          alert(
-            `
-            Title: ${formInput.title} 
-            Category: ${formInput.category} 
-            Status: ${formInput.status}
-            Details: ${formInput.detail}`
-          );
-          navigate(id ? `/feedback/${id}` : '/');
-        }}
-      >
-        {children}
-      </form>
+      <form onSubmit={handleSubmit}>{children}</form>
     </div>
   );
 };

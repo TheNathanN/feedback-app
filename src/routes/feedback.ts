@@ -1,13 +1,12 @@
-import { Request, Response } from 'express';
+import express, { Request, Response } from 'express';
+import { PrismaClient } from '@prisma/client';
 
-const express = require('express');
 const router = express.Router();
-const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 router.get('/', async (req: Request, res: Response) => {
   const feedback = await prisma.feedback.findMany();
-  if (feedback === {}) {
+  if (feedback.length > 0) {
     res.status(404).json({ message: 'No feedback available' });
   } else {
     res.json(feedback);
@@ -52,7 +51,7 @@ router.put('/', async (req: Request, res: Response) => {
     },
   });
 
-  if (editedFeedback == {}) {
+  if (editedFeedback) {
     res.status(400).json({ message: 'There was a problem updating feedback' });
   }
 
@@ -75,7 +74,7 @@ router.delete('/', async (req: Request, res: Response) => {
     },
   });
 
-  if (deletedFeedback === {}) {
+  if (deletedFeedback) {
     res.status(400).json({ message: 'There was a problem deleting message' });
   }
 
@@ -85,4 +84,4 @@ router.delete('/', async (req: Request, res: Response) => {
   });
 });
 
-module.exports = router;
+export default router;

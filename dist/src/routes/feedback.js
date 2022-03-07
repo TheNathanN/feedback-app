@@ -8,14 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express = require('express');
-const router = express.Router();
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const express_1 = __importDefault(require("express"));
+const client_1 = require("@prisma/client");
+const router = express_1.default.Router();
+const prisma = new client_1.PrismaClient();
 router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const feedback = yield prisma.feedback.findMany();
-    if (feedback === {}) {
+    if (feedback.length > 0) {
         res.status(404).json({ message: 'No feedback available' });
     }
     else {
@@ -54,7 +57,7 @@ router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             status,
         },
     });
-    if (editedFeedback == {}) {
+    if (editedFeedback) {
         res.status(400).json({ message: 'There was a problem updating feedback' });
     }
     res.json({
@@ -72,7 +75,7 @@ router.delete('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             id,
         },
     });
-    if (deletedFeedback === {}) {
+    if (deletedFeedback) {
         res.status(400).json({ message: 'There was a problem deleting message' });
     }
     res.json({
@@ -80,4 +83,4 @@ router.delete('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         message: 'Feedback was deleted successfully',
     });
 }));
-module.exports = router;
+exports.default = router;

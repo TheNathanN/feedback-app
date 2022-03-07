@@ -14,7 +14,7 @@ datasource db {
 model User {
   @@map("user")
   id Int @id @default(autoincrement())
-  img String
+  image String
   name String
   username String @unique
   Comment Comment[]
@@ -30,6 +30,7 @@ model Feedback {
   upvotes Int @default(0)
   status String @default("Suggestion") 
   description String @db.VarChar(255)
+  Comment Comment[]
 }
 
 model Comment {
@@ -37,7 +38,10 @@ model Comment {
   id Int @id @default(autoincrement())
   content String @db.VarChar(255)
   user_id Int
+  feedback_id Int
+  Feedback Feedback @relation(fields: [feedback_id], references: [id])
   User User @relation(fields: [user_id], references: [id]) 
+  Reply Reply[]
 }
 
 model Reply {
@@ -46,6 +50,8 @@ model Reply {
   content String @db.VarChar(255)
   replying_to String
   user_id Int
+  comment_id Int
+  Comment Comment @relation(fields: [comment_id], references: [id])
   User User @relation(fields: [user_id], references: [id])
 }
 
