@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 router.get('/', async (req: Request, res: Response) => {
   const feedback = await prisma.feedback.findMany();
-  if (feedback.length > 0) {
+  if (!feedback) {
     res.status(404).json({ message: 'No feedback available' });
   } else {
     res.json(feedback);

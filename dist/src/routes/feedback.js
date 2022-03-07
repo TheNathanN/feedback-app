@@ -18,7 +18,7 @@ const router = express_1.default.Router();
 const prisma = new client_1.PrismaClient();
 router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const feedback = yield prisma.feedback.findMany();
-    if (feedback.length > 0) {
+    if (!feedback) {
         res.status(404).json({ message: 'No feedback available' });
     }
     else {

@@ -1,14 +1,15 @@
 import { CommentType, FeedbackType } from './type';
 
 export const fetchSuggestions = async (
-  db: string,
   setState: React.Dispatch<any>,
   signal?: AbortSignal
 ) => {
   try {
-    const response = await fetch(db, { signal: signal });
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/feedback`, {
+      signal: signal,
+    });
     const data = await response.json();
-    setState(data.productRequests);
+    setState(data);
   } catch (err) {
     console.log(err);
     return;

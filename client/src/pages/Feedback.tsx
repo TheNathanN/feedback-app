@@ -18,7 +18,7 @@ const Feedback = () => {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetchSuggestions('../data.json', setFeedbackList, signal);
+    fetchSuggestions(setFeedbackList, signal);
 
     return () => {
       controller.abort();

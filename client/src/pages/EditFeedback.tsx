@@ -34,7 +34,7 @@ const EditFeedback = () => {
     const signal = controller.signal;
 
     if (!feedbackList) {
-      fetchSuggestions('../../data.json', setFeedbackList, signal);
+      fetchSuggestions(setFeedbackList, signal);
     }
 
     const setEditDefault = () => {
