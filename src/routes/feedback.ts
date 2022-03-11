@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 router.get('/', async (req: Request, res: Response) => {
   const feedback = await prisma.feedback.findMany();
-  if (!feedback) {
+  if (feedback === []) {
     res.status(404).json({ message: 'No feedback available' });
   } else {
     res.json(feedback);
@@ -26,6 +26,12 @@ router.post('/', async (req: Request, res: Response) => {
       description: detail,
     },
   });
+
+  if (!newFeedback) {
+    res
+      .status(400)
+      .json({ message: 'Sorry, there was a problem saving the new feedback.' });
+  }
 
   res
     .status(201)
@@ -51,7 +57,7 @@ router.put('/', async (req: Request, res: Response) => {
     },
   });
 
-  if (editedFeedback) {
+  if (!editedFeedback) {
     res.status(400).json({ message: 'There was a problem updating feedback' });
   }
 
@@ -74,7 +80,7 @@ router.delete('/', async (req: Request, res: Response) => {
     },
   });
 
-  if (deletedFeedback) {
+  if (!deletedFeedback) {
     res.status(400).json({ message: 'There was a problem deleting message' });
   }
 

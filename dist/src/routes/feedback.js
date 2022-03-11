@@ -18,7 +18,7 @@ const router = express_1.default.Router();
 const prisma = new client_1.PrismaClient();
 router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const feedback = yield prisma.feedback.findMany();
-    if (!feedback) {
+    if (feedback === []) {
         res.status(404).json({ message: 'No feedback available' });
     }
     else {
@@ -37,6 +37,11 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             description: detail,
         },
     });
+    if (!newFeedback) {
+        res
+            .status(400)
+            .json({ message: 'Sorry, there was a problem saving the new feedback.' });
+    }
     res
         .status(201)
         .json({ data: newFeedback, message: 'Feedback was created successfully' });
@@ -57,7 +62,7 @@ router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             status,
         },
     });
-    if (editedFeedback) {
+    if (!editedFeedback) {
         res.status(400).json({ message: 'There was a problem updating feedback' });
     }
     res.json({
@@ -75,7 +80,7 @@ router.delete('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             id,
         },
     });
-    if (deletedFeedback) {
+    if (!deletedFeedback) {
         res.status(400).json({ message: 'There was a problem deleting message' });
     }
     res.json({

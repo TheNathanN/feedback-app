@@ -1,12 +1,13 @@
-import { CommentType } from '../../utils/type';
+import { CommentType, UserType } from '../../utils/type';
 import { getCommentCount, pluralCheck } from '../../utils/utilFunctions';
 import CommentContainer from './CommentContainer';
 
 interface Props {
+  users: UserType[];
   comments?: CommentType[];
 }
 
-const CommentCard = ({ comments }: Props) => {
+const CommentCard = ({ comments, users }: Props) => {
   const count = getCommentCount(comments);
 
   return (
@@ -23,7 +24,7 @@ const CommentCard = ({ comments }: Props) => {
               key={comment.id}
               className='border-b-[1px] border-whiteBlue last:border-0 '
             >
-              <CommentContainer comment={comment} />
+              <CommentContainer users={users} comment={comment} />
             </div>
           ))
         : ''}

@@ -2,19 +2,21 @@ export interface UserType {
   image: string;
   name: string;
   username: string;
+  id?: number;
 }
 
 export interface ReplyType {
   content: string;
-  replyingTo: string;
-  user: UserType;
+  replying_to: string;
+  user_id: number;
+  comment_id: number;
 }
 
 export interface CommentType {
-  id: number;
   content: string;
-  user: UserType;
-  replies?: ReplyType[];
+  user_id: number;
+  feedback_id: number;
+  id?: number;
 }
 
 export interface FeedbackType {
@@ -24,7 +26,6 @@ export interface FeedbackType {
   upvotes: number;
   status: string;
   description: string;
-  comments?: CommentType[];
 }
 
 export type StatusType = 'Planned' | 'In-Progress' | 'Live';

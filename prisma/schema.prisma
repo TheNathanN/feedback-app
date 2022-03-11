@@ -58,7 +58,7 @@ model Reply {
 model Key {
   @@map("key")
   id Int @id @default(autoincrement())
-  token String
+  token String @unique
   user_id Int
   User User @relation(fields: [user_id], references: [id])
 }

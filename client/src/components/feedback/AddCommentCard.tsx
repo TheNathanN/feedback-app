@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { fetchUser, pluralCheck } from '../../utils/utilFunctions';
-import { CommentType, UserType } from '../../utils/type';
+import { CommentType, FeedbackType, UserType } from '../../utils/type';
 import Button from '../../ui/Button';
 import TextArea from '../../ui/TextArea';
 
 interface Props {
   comments?: CommentType[];
+  feedback?: FeedbackType;
 }
 
-const AddCommentCard = ({ comments }: Props) => {
+const AddCommentCard = ({ comments, feedback }: Props) => {
   const [user, setUser] = useState<UserType>();
   const [newComment, setNewComment] = useState('');
   const maxLength = 250;
   const count = maxLength - newComment.length;
 
   useEffect(() => {
-    fetchUser('../../data.json', setUser);
+    fetchUser(setUser);
   }, []);
 
   const handleSubmit = (e: React.SyntheticEvent) => {
-    if (newComment && user) {
+    if (newComment && feedback && user) {
       const comment: CommentType = {
-        id: Math.random(),
         content: newComment,
-        user: user,
+        user_id: 1,
+        feedback_id: feedback.id,
       };
       alert(`Comment: '${comment.content}'`);
     }

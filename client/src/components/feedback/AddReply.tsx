@@ -15,32 +15,31 @@ const AddReply = ({ user, replyUser }: Props) => {
 
   useEffect(() => {
     if (!currentUser) {
-      fetchUser('../../data.json', setCurrentUser);
+      fetchUser(setCurrentUser);
     }
     setInputState(replyUser ? `@${replyUser.username}` : `@${user.username}`);
   }, [replyUser, replyUser?.username, user.username, currentUser]);
 
-  const handleSubmit = () => {
-    if (currentUser) {
-      const reply: ReplyType = {
-        content: inputState,
-        replyingTo: replyUser ? `@${replyUser.username}` : `@${user.username}`,
-        user: currentUser,
-      };
-      alert(
-        `Reply to ${
-          replyUser ? `@${replyUser.username}` : `@${user.username}`
-        }: '${reply.content}'`
-      );
-    }
-  };
+  // const handleSubmit = () => {
+  //   if (currentUser) {
+  //     const reply: ReplyType = {
+  //       content: inputState,
+  //       replying_to: replyUser ? `@${replyUser.username}` : `@${user.username}`,
+  //       user_id: 1,
+  //       comment_id:
+
+  //     };
+  //     alert(
+  //       `Reply to ${
+  //         replyUser ? `@${replyUser.username}` : `@${user.username}`
+  //       }: '${reply.content}'`
+  //     );
+  //   }
+  // };
 
   return (
     <div>
-      <form
-        className='flex flex-col items-start justify-center md:flex-row md:justify-between '
-        onSubmit={handleSubmit}
-      >
+      <form className='flex flex-col items-start justify-center md:flex-row md:justify-between '>
         <div className='md:w-10/12 '>
           <TextArea
             name='reply'

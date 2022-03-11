@@ -1,22 +1,25 @@
 import { useState, useEffect } from 'react';
-import { useAppSelector } from '../redux/hooks';
-import { fetchSuggestions } from '../utils/utilFunctions';
-import { FeedbackType } from '../utils/type';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import {
+  fetchComments,
+  fetchReplies,
+  fetchSuggestions,
+} from '../utils/utilFunctions';
+import { CommentType, FeedbackType, ReplyType } from '../utils/type';
 import Header from '../components/home/Header';
 import Body from '../components/home/Body';
+import { setSuggestions } from '../redux/slices/suggestionsSlice';
 
 const Home = () => {
   const [openNav, setOpenNav] = useState(false);
-  const [feedbackList, setFeedbackList] = useState<FeedbackType[]>();
 
+  const dispatch = useAppDispatch();
   const sorter = useAppSelector(state => state.sorter.value);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const controller = new AbortController();
     const signal = controller.signal;
-
-    fetchSuggestions(setFeedbackList, signal);
 
     return () => {
       controller.abort();
@@ -45,6 +48,8 @@ const Home = () => {
             openNav={openNav}
             setOpenNav={setOpenNav}
             feedbackList={feedbackList}
+            commentList={commentList}
+            replyList={replyList}
           />
         </div>
       </div>

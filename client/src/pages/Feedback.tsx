@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FeedbackType } from '../utils/type';
-import { fetchSuggestions } from '../utils/utilFunctions';
+import { CommentType, FeedbackType, UserType } from '../utils/type';
+import {
+  fetchComments,
+  fetchSuggestions,
+  fetchUsers,
+} from '../utils/utilFunctions';
 import FeedbackCard from '../components/FeedbackCard';
 import BackButton from '../ui/BackButton';
 import Button from '../ui/Button';
@@ -11,6 +15,8 @@ import AddCommentCard from '../components/feedback/AddCommentCard';
 const Feedback = () => {
   const { id } = useParams();
   const [feedbackList, setFeedbackList] = useState<FeedbackType[]>();
+  const [comments, setComments] = useState<CommentType[]>();
+  const [users, setUsers] = useState<UserType[]>();
   const feedback = feedbackList?.filter(item => `${item.id}` === id);
 
   useEffect(() => {
@@ -19,6 +25,8 @@ const Feedback = () => {
     const signal = controller.signal;
 
     fetchSuggestions(setFeedbackList, signal);
+    fetchComments(setComments);
+    fetchUsers(setUsers);
 
     return () => {
       controller.abort();
@@ -37,15 +45,15 @@ const Feedback = () => {
           </Link>
         </div>
 
-        {feedback ? (
+        {feedback && users ? (
           <div>
             <div className='my-6 '>
               <FeedbackCard feedback={feedback[0]} />
             </div>
 
-            <CommentCard comments={feedback[0].comments} />
+            <CommentCard users={users} comments={comments} />
 
-            <AddCommentCard comments={feedback[0].comments} />
+            <AddCommentCard feedback={feedback[0]} comments={comments} />
           </div>
         ) : (
           <div className='flex items-center justify-center w-screen h-screen '>

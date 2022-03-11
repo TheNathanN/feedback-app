@@ -1,17 +1,21 @@
 import CommentCount from '../ui/CommentCount';
 import TagButton from '../ui/TagButton';
 import UpvoteButton from '../ui/UpvoteButton';
-import { FeedbackType } from '../utils/type';
+import { CommentType, FeedbackType } from '../utils/type';
 import { getCommentCount } from '../utils/utilFunctions';
 import { Link } from 'react-router-dom';
 
 interface Props {
   feedback?: FeedbackType;
   statusCard?: true;
+  comments?: CommentType[];
 }
 
-const FeedbackCard = ({ feedback, statusCard }: Props) => {
-  const count = getCommentCount(feedback?.comments);
+const FeedbackCard = ({ feedback, statusCard, comments }: Props) => {
+  const commentsOnCurrentFeedback = comments?.filter(
+    comment => comment.feedback_id === feedback?.id
+  );
+  const count = getCommentCount(commentsOnCurrentFeedback);
 
   return (
     <div

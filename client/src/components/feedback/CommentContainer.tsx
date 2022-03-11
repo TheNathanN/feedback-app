@@ -6,10 +6,13 @@ import AddReply from './AddReply';
 
 interface Props {
   comment: CommentType;
+  users: UserType[];
 }
 
-const CommentContainer = ({ comment }: Props) => {
-  const { user, content, replies } = comment;
+const CommentContainer = ({ comment, users }: Props) => {
+  const { user_id, content } = comment;
+  const userArray = users.filter(user => user.id === user_id);
+  const user = userArray[0];
 
   const [mainReply, setMainReply] = useState(false);
   const [replyReply, setReplyReply] = useState(false);

@@ -1,4 +1,4 @@
-import { FeedbackType } from '../../utils/type';
+import { CommentType, FeedbackType, ReplyType } from '../../utils/type';
 import { useAppSelector } from '../../redux/hooks';
 import { getCommentCount } from '../../utils/utilFunctions';
 import { sorterList } from '../../utils/labels';
@@ -11,9 +11,17 @@ interface Props {
   openNav: boolean;
   setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
   feedbackList?: FeedbackType[];
+  commentList?: CommentType[];
+  replyList?: ReplyType[];
 }
 
-const Body = ({ openNav, setOpenNav, feedbackList }: Props) => {
+const Body = ({
+  openNav,
+  setOpenNav,
+  feedbackList,
+  commentList,
+  replyList,
+}: Props) => {
   const filter = useAppSelector(state => state.filter.value);
   const sorter = useAppSelector(state => state.sorter.value);
 
@@ -22,12 +30,8 @@ const Body = ({ openNav, setOpenNav, feedbackList }: Props) => {
   );
 
   const sortFeedback = (feedbackA: FeedbackType, feedbackB: FeedbackType) => {
-    const commentCountA = feedbackA.comments
-      ? getCommentCount(feedbackA.comments)
-      : 0;
-    const commentCountB = feedbackB.comments
-      ? getCommentCount(feedbackB.comments)
-      : 0;
+    const commentCountA = getCommentCount(commentList, replyList, feedbackA);
+    const commentCountB = getCommentCount(commentList, replyList, feedbackB);
 
     if (sorter === sorterList[3]) {
       return commentCountA - commentCountB;
@@ -59,7 +63,7 @@ const Body = ({ openNav, setOpenNav, feedbackList }: Props) => {
           {feedbackList && filter === 'All' ? (
             feedbackList.sort(sortFeedback).map((feedback: FeedbackType) => (
               <div className='w-11/12 md:w-full' key={feedback.id}>
-                <FeedbackCard feedback={feedback} />
+                <FeedbackCard feedback={feedback} comments={commentList} />
               </div>
             ))
           ) : feedbackList &&
@@ -69,7 +73,7 @@ const Body = ({ openNav, setOpenNav, feedbackList }: Props) => {
               .sort(sortFeedback)
               .map((feedback: FeedbackType) => (
                 <div className='w-11/12 md:w-full' key={feedback.id}>
-                  <FeedbackCard feedback={feedback} />
+                  <FeedbackCard feedback={feedback} comments={commentList} />
                 </div>
               ))
           ) : (
